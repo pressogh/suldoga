@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Suldaga</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .header {
+            width: 100%;
+            height: 75px;
+            background-color: #252525;
+        }
+    </style>
 </head>
 <body>
+    <div class="header"></div>
+    <div style="width: 100%; height: calc(100% - 75px);">
        {% block content %}
        {% endblock %}
+    </div>
 </body>
 </html>
