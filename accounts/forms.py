@@ -42,3 +42,13 @@ class RegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+    def clean(self):
+        super(RegisterForm, self).clean()
+
+        password = self.cleaned_data.get('password')
+
+        if len(password) < 8:
+            self._errors['password'] = self.error_class(['숫자, 영문 포함 8자리 이상'])
+
+        return self.cleaned_data
