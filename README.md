@@ -1,7 +1,7 @@
 # suldoga
 ### 한성대학교 멋쟁이사자처럼 4팀
 
-## start
+## How to start
 ### Clone project
 ```git clone https://github.com/pressogh/suldoga.git```
 ### Virtualenv Setting
