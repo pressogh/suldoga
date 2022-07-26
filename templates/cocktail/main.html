@@ -2,7 +2,207 @@
 {% load static %}
 
 {% block content %}
+    <script src="{% static 'cocktail/index.js' %}"></script>
     <div>
+          <!-- slide -->
+    <div class="panel">
+        <div class="panel-image"><img src="{% static 'cocktail/img/panel.png' %}" alt="술도가 설명"></div>
+        <div class="panelText">
+            <!-- panel 안에 들어가는 text -->
+        <p>취향껏 재료를 선택하면</p><b>가장 비슷한 칵테일</b>을 추천해드려요!
+        </div>
+        <a href="test.html" class="produceBtn">칵테일 제조하러 가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10230;</a>
+    </div>
+    <!-- 검색바 -->
+    <section>
+        <div>
+            <input class ="searchBar" type="search" 
+            placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;🍸"
+            onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;🍸'">
+        </div>
+    </section>
 
+    <!-- 칵테일 카드 View List -->
+    <section>
+        <div class="cardBox" style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/br.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            
+            <section class="titleKr">
+              <p>블랙러시안</p>
+            </section>
+            <section class="titleEng">
+                <p>Black Russian</p>
+              </section>
+          </div>
+          <div class="cardBox" style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/jc.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+              <p>잭콕</p>
+            </section>
+            <section class="titleEng">
+                <p>Jack & Coke</p>
+              </section>
+          </div>
+          <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/ts.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+              <p>데킬라 선라이즈</p>
+            </section>
+            <section class="titleEng">
+                <p>Tequila Sunrise</p>
+              </section>
+          </div>
+
+          <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/sd.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+              <p>스크류 드라이버</p>
+            </section>
+            <section class="titleEng">
+                <p>Screw Driver</p>
+              </section>
+          </div>
+            <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/vc.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+                <p>보드카 크랜베리</p>
+            </section>
+            <section class="titleEng">
+                <p>Vodka Cranberry</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/km.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+            <p>깔루아 밀크</p>
+            </section>
+            <section class="titleEng">
+                <p>Kahlua Milk</p>
+            </section>
+        </div>
+            <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/gt.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+                <p>진 토닉</p>
+            </section>
+            <section class="titleEng">
+                <p>Gin and Tonic</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+            <img class="thumbnail" src="{% static 'cocktail/img/alcohol/mg.png' %}"/>
+            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
+            <section class="titleKr">
+            <p>마가리타</p>
+            </section>
+            <section class="titleEng">
+                <p>Margarita</p>
+            </section>
+        </div>
+    </section>
+
+    <!-- 더 알아보기 버튼 -->
+    <section>
+        <div>
+            <a href="test.html" class="contentsBtn">더 알아보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#43;</a>
+        </div>
+    </section>
+    <hr class="hrLine">
+    <!-- 쉽게 알아보는 베이스 종류 -->
+    <section>
+            <p class="textTitle">쉽게 알아보는 베이스 종류</p>
+            <p class="textSmall">클릭하면 해당 베이스 술에 대해서 더 설명해드릴게요!</p>
+
+            <div class="baseList">
+                <a href="infopage.html">
+                <img src="{% static 'cocktail/img/baseImage/gray/위스키_글렌피딕_싱글몰트_gray.png' %}" class="baseImg" 
+                onmouseover="this.src='{% static 'cocktail/img/baseImage/color/위스키_글렌피딕_싱글몰트.png' %}'"
+                onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/위스키_글렌피딕_싱글몰트_gray.png' %}'"
+                />
+                </a>
+                <p class="baseText">위스키</p>
+                <a href="infopage.html">
+                    <img src="{% static 'cocktail/img/baseImage/gray/진_봄베이사파이어_gray.png' %}" class="baseImg" style=" left: 200px;"
+                    onmouseover="this.src='{% static 'cocktail/img/baseImage/color/진_봄베이사파이어.png' %}'"
+                    onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/진_봄베이사파이어_gray.png' %}'"
+                    />
+                </a>
+                <p class="baseText" style="left: 250px">진</p>
+                  <a href="infopage.html">
+                <img src="{% static 'cocktail/img/baseImage/gray/데킬라_호세쿠엘보_gray.png' %}" class="baseImg" style=" left: 350px;"
+                onmouseover="this.src='{% static 'cocktail/img/baseImage/color/데킬라_호세쿠엘보.png' %}'"
+                onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/데킬라_호세쿠엘보_gray.png' %}'"
+                />
+            </a>
+               <p class="baseText" style="left: 400px">데킬라</p>
+                 <a href="infopage.html">
+               <img src="{% static 'cocktail/img/baseImage/gray/보드카_앱솔루트__gray.png' %}" class="baseImg" style=" left: 500px;"
+               onmouseover="this.src='{% static 'cocktail/img/baseImage/color/보드카_앱솔루트.png' %}'"
+               onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/보드카_앱솔루트__gray.png' %}'"
+               />
+            </a>
+                  <p class="baseText" style="left: 550px">보드카</p>
+                     <a href="infopage.html">
+                  <img src="{% static 'cocktail/img/baseImage/gray/리큐르_피치트리_gray.png' %}" class="baseImg" style=" left: 650px;"
+                  onmouseover="this.src='{% static 'cocktail/img/baseImage/color/리큐르_피치트리.png' %}'"
+                  onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/리큐르_피치트리_gray.png' %}'"
+                  />
+                </a>
+                  <p class="baseText" style="left: 701px">리큐르</p>
+                   <a href="infopage.html">
+                  <img src="{% static 'cocktail/img/baseImage/gray/럼_바카디_gray.png' %}" class="baseImg" style=" left: 800px;"
+                  onmouseover="this.src='{% static 'cocktail/img/baseImage/color/럼_바카디.png' %}'"
+                  onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/럼_바카디_gray.png' %}'"
+                  />
+                </a>
+                    <p class="baseText" style="left: 853px">럼</p>
+                   <a href="infopage.html">
+                  <img src="{% static 'cocktail/img/baseImage/gray/브랜디_XO_gray.png' %}" class="baseImg" style=" left: 950px;"
+                  onmouseover="this.src='{% static 'cocktail/img/baseImage/color/브랜디_XO.png' %}'"
+                  onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/브랜디_XO_gray.png' %}'"
+                  />
+                </a>
+                    <p class="baseText" style="left: 1003px">브랜디</p>                
+            </div>
+        </section>
     </div>
 {% endblock %}

@@ -1,0 +1,287 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://rsms.me/inter/inter.css');
+    
+
+    body {
+        margin: 0px;
+
+    } 
+
+    /* 상단 navbar */
+    .navStyle {
+        background-color: #040A04;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        width: 100%;
+        height: 83px;
+        left: 0px;
+        top: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    .liStyle {
+        display: inline;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        margin-left: 57px;
+        margin-right: 114px;
+    }
+
+    /* liLogin */
+    .liLogin {
+        display: inline;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        margin-left: 271px;
+        margin-right: 57px;
+    }
+
+    .underLine {
+        text-decoration-line: none;
+        color: #ADADAD;
+    }
+    .underLogin {
+        text-decoration-line: none;
+        color: #FFFFFF;
+    }
+  
+    /* panel */
+    .panel {
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 83px;
+        background-color: #0A0603;
+    }
+    .panel > img {
+        width: 100%;
+    }
+    .panelText {
+        position: absolute;
+        width: 558px;
+        height: 120px;
+        left: 992px;
+        top: 80px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 40px;
+        line-height: 60%;
+        text-align: right;
+        color: #F0F0F0;
+    }
+
+    /* 칵테일 제조 버튼 */
+    .produceBtn {
+        box-sizing: border-box;
+        position: absolute;
+        width: 280px;
+        height: 73px;
+        left: 1270px;
+        top: 330px;
+        background-color: #0A0603;
+        border: 2px solid #D7D7D7;
+        color: #D7D7D7;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 65px;
+    }
+
+    /* 검색 바 */
+    .searchBar{
+        box-sizing: border-box;
+        position: absolute;
+        width: 780px;
+        height: 64px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 664px;
+        border: 1px solid #ADADAD;
+        border-radius: 40px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+    }
+
+
+    /* 칵테일 Card View */
+    .cardBox {
+        float: left;
+        position:relative;
+        justify-content: center;
+        margin-bottom: 75px;
+        margin-right: 101px;
+      }
+      
+      .thumbnail {
+        width: 200px;
+        height:200px;
+        display: block; 
+        margin: 0px auto;
+      }
+   
+      .titleKr {
+        text-align: center;
+        z-index: 2;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: #000000;
+      
+
+      }
+      .titleEng {
+        text-align: center;
+        z-index: 2;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        color: #6F6F6F;
+        margin-top: -15px;
+      }
+
+      /* 더 알아보기 버튼 */
+    .contentsBtn {
+        position: absolute;
+        width: 328px;
+        height: 80px;
+        left: 50%;
+        top: 1647px;
+        background-color: #040A04;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 80px;
+        transform: translateX(-50%);
+    }
+
+    /* hr line */
+    .hrLine {
+        position: absolute;
+        width: 1440px;
+        height: 0px;
+        left: 50%;
+        top: 1818px;
+        transform: translateX(-50%);
+        border: 1px solid #C8C8C8;
+    }
+
+    /* like button */
+    .likeBtn {
+        width: 32px;
+        height: 28.75px;
+        margin-top: -17.5px;
+        margin-left: 200px;
+    }
+
+    /* main text */
+    .textTitle {
+        position: absolute;
+        width: 287px;
+        height: 42px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1030px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 150%;
+        text-align: center;
+        color: #040A04;
+    }
+
+    .textSmall {
+        position: absolute;
+        width: 416px;
+        height: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1060px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 150%;
+        text-align: center;
+        color: #ADADAD;
+    }
+
+    /* footer */
+    .copyright {
+        position: absolute;
+        width: 100%;
+        height: 165px;
+        left: 0px;
+        bottom: -1680px;
+        background: #040A04;
+        text-align : center;
+    }
+    .copyright > img {
+        width: 40%;
+        margin-top: 60px;
+    }
+    
+    /* 술 베이스 부분 */
+    .baseList{
+        transform: translateX(-50%);
+        position: absolute;
+        width: 1180px;
+        height: 144px;
+        bottom: -1520px;
+        background: #040A04;
+        border-radius: 12px 12px 0px 0px;
+        left: 50%;
+    }
+
+    /* 술 베이스 이미지 */
+    .baseImg {
+        z-index: -1;
+        position: absolute;
+        width: 168.22px;
+        height: 280.37px;
+        left: 50px;
+        top: -261px;
+    }
+
+    /* base text */
+    .baseText{
+        position: absolute;
+        width: 63px;
+        height: 36px;
+        left: 100px;
+        bottom: 55px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 150%;
+        text-align: center;
+        color: #F0F0F0;
+    }
