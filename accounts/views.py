@@ -5,15 +5,28 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 
-
 def LoginView(request):
     if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username = username, password=password)
+        
+        if user is not None:
+            login(request,user)
+            return HttpResponseRedirect(reverse('cocktail:main'))
+        else:
+            return render(request,'accounts/login.html')
+
+    #if request.method == 'GET':
+    else:
         return render(request, 'accounts/login.html')
 
-    if request.method == 'GET':
-        return render(request, 'accounts/login.html')
 
+def LogoutView(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('cocktail:main'))
 
+    
 def RegisterView(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
