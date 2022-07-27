@@ -22,12 +22,12 @@
 <div class="container">
     <div>
         <div class="select-register">
-            <div class="login" style="background-color: black">
-                <a href="{% url 'accounts:login' %}" style="color: white;">Login</a>
-            </div>
-            <div class="register" style="background-color: #D9D9D9">
-                <a href="{% url 'accounts:register' %}" style="color: black;">Register</a>
-            </div>
+            <a class="login" style="background-color: black; color: white;" href="{% url 'accounts:login' %}">
+                Login
+            </a>
+            <a class="register" style="background-color: #D9D9D9; color: black;" href="{% url 'accounts:register' %}">
+                Register
+            </a>
         </div>
         <form action="{% url 'accounts:login' %}" method="post" style="display: flex; flex-direction: column; align-items: center">
             {% csrf_token %}

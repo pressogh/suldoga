@@ -1,0 +1,591 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block content %}
+<!-- 칵테일 카드 View List -->
+<link rel="stylesheet" type="text/css" href="{% static 'cocktail/main/index.css' %}">
+
+<section>
+    <div class="cardBox" style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal1">
+            <img class="modal-custom-button" href="#myModal1" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+
+        <section class="titleKr">
+            <p>블랙러시안</p>
+        </section>
+        <section class="titleEng">
+            <p>Black Russian</p>
+        </section>
+
+
+        <!-- The Modal -->
+        <div id="myModal1" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>블랙러시안</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Black Russian</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">러시아의 대표 술인 보드카와 커피 리큐르의 색(블랙)을 따와 지어진 이름입니다.
+                        <br>알콜도수가 높음에도 단맛이 특징입니다.
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">30~35도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">단맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">보드카</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">나초</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %} %}'" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+    </div>
+
+    <div class="cardBox" style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal2">
+            <img class="modal-custom-button" href="#myModal2" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
+        </button>
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+
+        <section class="titleKr">
+            <p>잭콕</p>
+        </section>
+        <section class="titleEng">
+            <p>Jack & Coke</p>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal2" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>잭콕</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Jack & Coke</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">잭 다니엘과 콜라를 섞어 만드는 간단하고 대중적인 칵테일입니다.
+                        <br>
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">15도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">단맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">잭 다니엘</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">비스킷</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+
+
+
+    </div>
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal3">
+            <img class="modal-custom-button" href="#myModal3" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>데킬라 선라이즈</p>
+        </section>
+        <section class="titleEng">
+            <p>Tequila Sunrise</p>
+        </section>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal3" class="modal-custom">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">×</span>
+                <br><br>
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}" alt="">
+
+                <section class="titleKr">
+                    <p>데킬라 선라이즈</p>
+                </section>
+                <section class="titleEng">
+                    <p>Tequila Sunrise</p>
+                </section>
+            </div>
+            <br>
+            <div class="modal-body">
+
+                <p class="content">일출을 닮았다고 하여 붙여진 이름으로 색이 붉은 하늘을 연상시킵니다.
+                    <br>여름에 가볍게 마시기 좋은 칵테일입니다.
+                </p>
+
+                <p class="modal-title">도수</p>
+                <p class="content">10~12도</p>
+
+                <p class="modal-title">맛</p>
+                <p class="content">상큼한 맛</p>
+
+                <p class="modal-title">베이스</p>
+                <p class="content">데킬라</p>
+
+                <p class="modal-title">어울리는 음식</p>
+                <p class="content">과일</p>
+            </div>
+            <div class="modal-footer">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal4">
+            <img class="modal-custom-button" href="#myModal4" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>스크류 드라이버</p>
+        </section>
+        <section class="titleEng">
+            <p>Screw Driver</p>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal4" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>스크류 드라이버</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Screw Drive</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">미국인 노동자들이 술을 저어 마실 때
+                        <br> 드라이버를 사용해서 술을 섞었다고 하여 붙여진 이름입니다.
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">15도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">상큼한 맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">보드카</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">샐러드</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+
+    </div>
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal5">
+            <img class="modal-custom-button" href="#myModal5" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>보드카 크랜베리</p>
+        </section>
+        <section class="titleEng">
+            <p>Vodka Cranberry</p>
+        </section>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal5" class="modal-custom">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">×</span>
+                <br><br>
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}" alt="">
+
+                <section class="titleKr">
+                    <p>보드카 크랜베리</p>
+                </section>
+                <section class="titleEng">
+                    <p>Vodka Cranberry</p>
+                </section>
+            </div>
+            <br>
+            <div class="modal-body">
+
+                <p class="content">크렌베리 주스와 보드카를 섞어 만드는 칵테일로
+                    <br>크랜베리 제배로 유명한 지명을 따와 케이프 코더라고 부르기도 합니다.
+                </p>
+
+                <p class="modal-title">도수</p>
+                <p class="content">15~20도</p>
+
+                <p class="modal-title">맛</p>
+                <p class="content">상큼한 맛</p>
+
+                <p class="modal-title">베이스</p>
+                <p class="content">보드카</p>
+
+                <p class="modal-title">어울리는 음식</p>
+                <p class="content">육류</p>
+            </div>
+            <div class="modal-footer">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+
+
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal5">
+            <img class="modal-custom-button" href="#myModal5" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>깔루아 밀크</p>
+        </section>
+
+        <section class="titleEng">
+            <p>Kahlua Milk</p>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal5" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>깔루아 밀크</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Kahlua Milk</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">달달한 커피맛이 나는 부드러운 칵테일입니다.
+                        <br>
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">10~15도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">단맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">깔루아</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">카나페</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+    </div>
+
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal6">
+            <img class="modal-custom-button" href="#myModal6" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
+        </button>
+
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>진 토닉</p>
+        </section>
+        <section class="titleEng">
+            <p>Gin and Tonic</p>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal6" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>진 토닉</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Gin and Tonic</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">진과 토닉워터를 섞어서 만드는 간단한 칵테일입니다.
+                        <br>
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">15~20도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">상큼한 맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">진</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">과일</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star_gray.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+    </div>
+
+
+
+    <div class="cardBox"  style="
+            width: 280px;
+            height: 300px;
+            left: 300px;
+            top: 808px;">
+
+        <button class="modal-custom-button" href="#myModal7">
+            <img class="modal-custom-button" href="#myModal7" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
+        </button>
+        <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+        <section class="titleKr">
+            <p>마가리타</p>
+        </section>
+        <section class="titleEng">
+            <p>Margarita</p>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal7" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal">×</span>
+                    <br><br>
+                    <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}" alt="">
+
+                    <section class="titleKr">
+                        <p>마가리타</p>
+                    </section>
+                    <section class="titleEng">
+                        <p>Margarita</p>
+                    </section>
+                </div>
+                <br>
+                <div class="modal-body">
+
+                    <p class="content">유리잔 테두리에 소금을 두르는 것이 특징이 칵테일입니다.
+                        <br>도수가 높으므로 주의할 것!
+                    </p>
+
+                    <p class="modal-title">도수</p>
+                    <p class="content">40도</p>
+
+                    <p class="modal-title">맛</p>
+                    <p class="content">쓴맛</p>
+
+                    <p class="modal-title">베이스</p>
+                    <p class="content">데킬라</p>
+
+                    <p class="modal-title">어울리는 음식</p>
+                    <p class="content">나초</p>
+                </div>
+                <div class="modal-footer">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                    <img class="star" src="{% static 'cocktail/images/star.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+
+    </div>
+</section>
+
+<!--------------------------------------------------------->
+
+
+
+<footer> </footer>
+
+<script>
+    // Get the button that opens the modal
+    var btn = document.querySelectorAll("button.modal-custom-button");
+
+    // All page modals
+    var modals = document.querySelectorAll('.modal-custom');
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close-modal");
+
+    // 별관련
+    var stars = document.getElementsByClassName("stars");
+
+    // When the user clicks the button, open the modal
+    for (var i = 0; i < btn.length; i++) {
+        btn[i].onclick = function (e) {
+            e.preventDefault();
+            modal = document.querySelector(e.target.getAttribute("href"));
+            modal.style.display = "block";
+        }
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+        spans[i].onclick = function () {
+            for (var index in modals) {
+                if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+            }
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal-custom')) {
+            for (var index in modals) {
+                if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+            }
+        }
+    }
+
+</script>
+
+{% endblock %}

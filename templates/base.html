@@ -3,8 +3,6 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>술도가</title>
     <style>
         html, body {
@@ -46,9 +44,8 @@
             z-index: 3;
 
             /* font */
-            font-family: 'Pretendard';
-            font-style: normal;
-            font-weight: 400;
+            font-family: 'Pretendard', system-ui;
+            font-weight: 200;
             font-size: 18px;
         }
 
@@ -56,14 +53,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 90%;
+            width: 80%;
         }
 
         /* liLogin */
         .liLogin {
-            font-family: 'Inter';
+            font-family: 'Inter', system-ui;
             font-style: normal;
-            font-weight: 200;
+            font-weight: 300;
             font-size: 18px;
         }
 
@@ -77,14 +74,21 @@
 <header>
     <nav class="navStyle">
         <div class="navContent">
-            <a class="underLine" href="#">Logo영역</a>
-            <a class="underLine" href="#">칵테일 정보</a>
+            <a class="underLine" href="{% url 'cocktail:main' %}">Logo영역</a>
+            <a class="underLine" href="{% url 'cocktail:info' %}">칵테일 정보</a>
             <a class="underLine" href="#">Cocktail</a>
             <a class="underLine" href="#">술 조합 추천</a>
             <a class="underLine" href="#">술 문화 공유</a>
-            <div class="liLogin">
-                <a class="underLogin" href="#">LOGIN</a>
+            {% if request.user.is_authenticated %}
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;">
+                <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px; margin-right: 10px;"></div>
+                {{ request.user.username }}
             </div>
+            {% else %}
+            <div class="liLogin">
+                <a class="underLogin" href="{% url 'accounts:login' %}">LOGIN</a>
+            </div>
+            {% endif %}
         </div>
     </nav>
 </header>
@@ -97,7 +101,7 @@
 </body>
 
 <footer>
-    <img src="{% static 'cocktail/img/copyright.png' %}" alt="" width="600" height="50"/>
+    <img src="{% static 'cocktail/images/copyright.png' %}" alt="" width="600" height="50"/>
 </footer>
 
 </html>
