@@ -6,26 +6,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>술도가</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'cocktail/index.css' %}">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer{
+            height: 165px;
+            position : relative;
+            transform : translateY(-100%);
+            background: #040A04;
+            text-align : center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+          height: auto;
+          min-height: 100%;
+          padding-bottom: 165px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #ADADAD;
+        }
+
+        /* 상단 navbar */
+        .navStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #040A04;
+            position: fixed;
+            width: 100%;
+            height: 84px;
+            left: 0;
+            top: 0;
+            z-index: 3;
+
+            /* font */
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .navContent {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+        }
+
+        /* liLogin */
+        .liLogin {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 18px;
+        }
+
+        .underLogin {
+            text-decoration-line: none;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
+
 <header>
     <nav class="navStyle">
-        <ul>
-            <li class="liStyle"><a class="underLine" href="#">Logo영역</a></li>
-            <li class="liStyle"><a class="underLine" href="test.html">칵테일 정보</a></li>
-            <li class="liStyle"><a class="underLine" href="test.html">Cocktail</a></li>
-            <li class="liStyle"><a class="underLine" href="test.html">술 조합 추천</a></li>
-            <li class="liStyle"><a class="underLine" href="test.html">술 문화 공유</a></li>
-            <li class="liLogin"><a class="underLogin" href="test.html">LOGIN</a></li>
-        </ul>
+        <div class="navContent">
+            <a class="underLine" href="#">Logo영역</a>
+            <a class="underLine" href="#">칵테일 정보</a>
+            <a class="underLine" href="#">Cocktail</a>
+            <a class="underLine" href="#">술 조합 추천</a>
+            <a class="underLine" href="#">술 문화 공유</a>
+            <div class="liLogin">
+                <a class="underLogin" href="#">LOGIN</a>
+            </div>
+        </div>
     </nav>
 </header>
 
 <body>
+    <div class="wrapper">
        {% block content %}
        {% endblock %}
-    <footer class="copyright">
-        <img src="{% static 'cocktail/img/copyright.png' %}"/>
-    </footer>
+    </div>
 </body>
+
+<footer>
+    <img src="{% static 'cocktail/img/copyright.png' %}" alt="" width="600" height="50"/>
+</footer>
+
 </html>

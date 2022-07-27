@@ -1,25 +1,28 @@
 from django.shortcuts import render
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 
+
 def LoginView(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username = username, password=password)
-        
-        if user is not None:
-            login(request,user)
-            return HttpResponseRedirect(reverse('cocktail:main'))
-        else:
-            return render(request,'accounts/login.html')
+        form = LoginForm(request.POST)
 
-    #if request.method == 'GET':
-    else:
-        return render(request, 'accounts/login.html')
+        if form.is_valid():
+            user = form.login(request)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect(reverse('cocktail:main'))
+            else:
+                return render(request, 'accounts/login.html', {'form': form, 'error': '아이디 또는 패스워드가 틀렸습니다.'})
+
+        return render(request, 'accounts/login.html', {'form': form})
+
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'accounts/login.html', {'form': form})
 
 
 def LogoutView(request):

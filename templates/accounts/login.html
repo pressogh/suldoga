@@ -2,86 +2,9 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/index.css' %}">
 
 <style>
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px white inset !important;
-    }
-
-    input:focus {
-        outline: none;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: Inter, system-ui;
-        width: 100%;
-        height: 100%;
-        margin-top: 120px;
-    }
-
-    .select-register {
-        display: flex;
-        flex-direction: row;
-        width: 380px;
-        height: 88px;
-    }
-
-    .login {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        height: 100%;
-        font-size: 24px;
-        color: #ffffff;
-        background-color: #0E0A08;
-    }
-
-    .register {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        height: 100%;
-        font-size: 24px;
-        background-color: #D9D9D9;
-    }
-
-    .form-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .form-item-box {
-        width: 380px;
-        border-bottom: 1px solid dimgray;
-        margin-top: 20px;
-        padding: 14px 0 16px 0;
-    }
-
-    .form-item-input {
-        width: 380px;
-        border: none;
-    }
-
-    .form-item-error {
-        border-bottom: 1px solid #D4374A;
-    }
-
-    .form-item-input::placeholder {
-        text-align: center;
-    }
-
-    .form-item-label {
-        margin-top: 84px;
-        font-size: 24px;
-    }
-
     .login-btn {
         display: flex;
         justify-content: center;
@@ -92,54 +15,54 @@
         border: none;
         color: #ffffff;
         font-size: 18px;
-        margin-top: 80px;
+        margin-top: 20px;
     }
 </style>
 
 <div class="container">
     <div>
         <div class="select-register">
-            <div class="login">Log In</div>
-            <div class="register">Sign Up</div>
+            <div class="login" style="background-color: black">
+                <a href="{% url 'accounts:login' %}" style="color: white;">Login</a>
+            </div>
+            <div class="register" style="background-color: #D9D9D9">
+                <a href="{% url 'accounts:register' %}" style="color: black;">Register</a>
+            </div>
         </div>
-        <form action="{% url 'accounts:login' %}" method="post">
+        <form action="{% url 'accounts:login' %}" method="post" style="display: flex; flex-direction: column; align-items: center">
             {% csrf_token %}
-            <div class="form-item">
-                <label for="ID" class="form-item-label">ID</label>
-                <div class="form-item-box">
-                    <input type="text" name="username" placeholder="아이디를 입력하세요" style="font-size: 18px; height:24px"
-                        class="form-item-input" maxlength="150" required_id="id_username">
-                </div>
-            </div>
-            <div class="form-item">
-                <label for="PASSWORD" class="form-item-label">PASSWORD</label>
-                <div class="form-item-box">
-                    <input type="password" name="password" placeholder="숫자,영문 포함 8자리 이상"
-                        style="font-size: 18px; height:24px" class="form-item-input" maxlength="128"
-                        required_id="id_password">
-                </div>
-            </div>
-
-            {% if form.errors %}
             {% for field in form %}
-            {% for error in field.errors %}
-            <!-- 필드 오류를 출력한다. -->
-            <div>
-              <strong>{{ field.label }}</strong>
-              {{ error }}
-            </div>
-            {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-            <!-- 넌필드 오류를 출력한다. -->
-            <div>
-              <strong>{{ error }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
+                <div class="form-item">
+                    <label for="{{ field.label }}" class="form-item-label">{{ field.label }}</label>
 
+                    {% if field.errors %}
+                        <div class="form-item-box form-item-error">
+                        {{ field }}
+                        </div>
+                    {% else %}
+                        <div class="form-item-box">
+                        {{ field }}
+                        </div>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p style="color: #D4374A;">{{ error | escape }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            {% if error %}
+            <p style="color: #D4374A; margin-top: 60px;">
+            {{ error }}
+            </p>
             <input type="submit" class="login-btn" value="로그인" />
+            {% else %}
+            <input type="submit" class="login-btn" value="로그인" style="margin-top: 80px;" />
+            {% endif %}
         </form>
     </div>
 </div>
+
 {% endblock %}

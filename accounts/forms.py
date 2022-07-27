@@ -1,5 +1,6 @@
 from django import forms
 from .models import User
+from django.contrib.auth import authenticate
 
 
 class RegisterForm(forms.ModelForm):
@@ -52,3 +53,37 @@ class RegisterForm(forms.ModelForm):
             self._errors['password'] = self.error_class(['숫자, 영문 포함 8자리 이상'])
 
         return self.cleaned_data
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label="ID", widget=forms.TextInput(attrs={
+            'placeholder': '아이디를 입력하세요',
+            'name': 'username',
+            'style': 'font-size: 18px; height: 24px',
+            'class': 'form-item-input'
+        })
+    )
+    password = forms.CharField(label="PASSWORD", widget=forms.PasswordInput(attrs={
+            'placeholder': '숫자, 영문 포함 8자리 이상',
+            'name': 'password',
+            'style': 'font-size: 18px; height: 24px',
+            'class': 'form-item-input'
+        })
+    )
+
+    def clean(self):
+        super(LoginForm, self).clean()
+
+        print(self.cleaned_data)
+        password = self.cleaned_data.get('password')
+
+        if len(password) < 8:
+            self._errors['password'] = self.error_class(['숫자, 영문 포함 8자리 이상'])
+
+        return self.cleaned_data
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user

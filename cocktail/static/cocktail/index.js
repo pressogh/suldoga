@@ -10,4 +10,4 @@ function changeLike() {
 
 // 사용자 브라우저 크기 출력
 // 반응형 개발 시 필요해서 넣어 둠.
-alert('사용자 디스플레이 해상도: ' + screen.width + 'x' + screen.height);
+// alert('사용자 디스플레이 해상도: ' + screen.width + 'x' + screen.height);

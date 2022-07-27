@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cocktail/index.css' %}">
     <script src="{% static 'cocktail/index.js' %}"></script>
     <div>
           <!-- slide -->
     <div class="panel">
-        <div class="panel-image"><img src="{% static 'cocktail/img/panel.png' %}" alt="술도가 설명"></div>
+        <div class="panel-image"><img src="{% static 'cocktail/img/panel.png' %}" alt="술도가 설명" width="100%"></div>
         <div class="panelText">
             <!-- panel 안에 들어가는 text -->
         <p>취향껏 재료를 선택하면</p><b>가장 비슷한 칵테일</b>을 추천해드려요!
@@ -16,7 +17,7 @@
     <!-- 검색바 -->
     <section>
         <div>
-            <input class ="searchBar" type="search" 
+            <input class ="searchBar" type="search"
             placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;🍸"
             onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;🍸'">
         </div>
@@ -31,7 +32,7 @@
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/img/alcohol/br.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/img/unlike.png' %}" />
-            
+
             <section class="titleKr">
               <p>블랙러시안</p>
             </section>
@@ -154,7 +155,7 @@
 
             <div class="baseList">
                 <a href="infopage.html">
-                <img src="{% static 'cocktail/img/baseImage/gray/위스키_글렌피딕_싱글몰트_gray.png' %}" class="baseImg" 
+                <img src="{% static 'cocktail/img/baseImage/gray/위스키_글렌피딕_싱글몰트_gray.png' %}" class="baseImg"
                 onmouseover="this.src='{% static 'cocktail/img/baseImage/color/위스키_글렌피딕_싱글몰트.png' %}'"
                 onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/위스키_글렌피딕_싱글몰트_gray.png' %}'"
                 />
@@ -201,8 +202,12 @@
                   onmouseout="this.src='{% static 'cocktail/img/baseImage/gray/브랜디_XO_gray.png' %}'"
                   />
                 </a>
-                    <p class="baseText" style="left: 1003px">브랜디</p>                
+                    <p class="baseText" style="left: 1003px">브랜디</p>
             </div>
         </section>
     </div>
+
+    <footer class="copyright">
+        <img src="{% static 'cocktail/img/copyright.png' %}" alt="" width="600" height="50"/>
+    </footer>
 {% endblock %}
