@@ -11,3 +11,7 @@ def InfoView(request):
 
 def ModalView(request):
     return render(request, 'cocktail/modal.html')
+
+
+def ListView(request):
+    return render(request, 'cocktail/list.html')

@@ -10,4 +10,5 @@ urlpatterns = [
     path('', views.MainView, name='main'),
     path('info', views.InfoView, name='info'),
     path('modal', views.ModalView, name='modal'),
+    path('list', views.ListView, name='list'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
