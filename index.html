@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>술도가</title>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <header>
+        <h2>
+            <div class="header_logo"><a href="#"><img src="img/ex_logo.png" alt="logo"></a></div>
+        </h2>
+        <ul class="menu">
+            <li><a href="#">칵테일 정보</a></li>
+            <li><a href="#">Cocktail</a></li>
+            <li><a href="#">K-ocktail</a></li>
+            <li><a href="#">술 조합 추천</a></li>
+            <li><a href="#">술 문화 공유</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="#">LOGIN</a></li>
+            <li><a href="#"><i class="fas fa-heart"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+        </ul>
+    </header>
+    
+    <section>
+        <h3>Cocktail</h3>
+        <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+                onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
+        </div>
+    </section>
+    <section class="chkbox">
+        <div class="contaniner">
+            <label><input type="checkbox" class="chk" name="" value="칵테일">칵테일</label>
+            <label><input type="checkbox" class="chk" name="" value="재료">재료</label>
+
+        </div>
+    </section>
+
+    <!-- 칵테일 카드 View List -->
+    <section class="coclist">
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/br.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>블랙러시안</p>
+            </section>
+            <section class="titleEng">
+                <p>Black Russian</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/jc.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>잭콕</p>
+            </section>
+            <section class="titleEng">
+                <p>Jack & Coke</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/ts.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>데킬라 선라이즈</p>
+            </section>
+            <section class="titleEng">
+                <p>Tequila Sunrise</p>
+            </section>
+        </div>
+
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/sd.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>스크류 드라이버</p>
+            </section>
+            <section class="titleEng">
+                <p>Screw Driver</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/vc.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>보드카 크랜베리</p>
+            </section>
+            <section class="titleEng">
+                <p>Vodka Cranberry</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/km.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>깔루아 밀크</p>
+            </section>
+            <section class="titleEng">
+                <p>Kahlua Milk</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/gt.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>진 토닉</p>
+            </section>
+            <section class="titleEng">
+                <p>Gin and Tonic</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/mg.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>마가리타</p>
+            </section>
+            <section class="titleEng">
+                <p>Margarita</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/br.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>블랙러시안</p>
+            </section>
+            <section class="titleEng">
+                <p>Black Russian</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/jc.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>잭콕</p>
+            </section>
+            <section class="titleEng">
+                <p>Jack & Coke</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/ts.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>데킬라 선라이즈</p>
+            </section>
+            <section class="titleEng">
+                <p>Tequila Sunrise</p>
+            </section>
+        </div>
+
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/sd.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>스크류 드라이버</p>
+            </section>
+            <section class="titleEng">
+                <p>Screw Driver</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/vc.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>보드카 크랜베리</p>
+            </section>
+            <section class="titleEng">
+                <p>Vodka Cranberry</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/km.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>깔루아 밀크</p>
+            </section>
+            <section class="titleEng">
+                <p>Kahlua Milk</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/gt.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>진 토닉</p>
+            </section>
+            <section class="titleEng">
+                <p>Gin and Tonic</p>
+            </section>
+        </div>
+        <div class="cardBox">
+            <img class="thumbnail" src="img/alcohol/mg.png" />
+            <img onclick="changeLike()" class="likeBtn" id="img" src="img/unlike.png" />
+            <section class="titleKr">
+                <p>마가리타</p>
+            </section>
+            <section class="titleEng">
+                <p>Margarita</p>
+            </section>
+        </div>
+    </section>
+    <footer>
+        <img src="img/footer.png" />
+    </footer>
+</body>
+
+</html>
