@@ -180,17 +180,18 @@
 
 /* footer */
 .copyright {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 165px;
     left: 0px;
-    bottom: -1680px;
+    bottom: -1520px;
     background: #040A04;
     text-align : center;
 }
 .copyright > img {
     width: 40%;
-    margin-top: 60px;
+    display:block;
+    margin:auto;
 }
 
 /* 술 베이스 부분 */
