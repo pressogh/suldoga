@@ -10,5 +10,6 @@ urlpatterns = [
     path('', views.MainView, name='main'),
     path('info', views.InfoView, name='info'),
     path('modal', views.ModalView, name='modal'),
-    path('list', views.ListView, name='list'),
+    path('cocktail', views.ListView, name='cocktail'),
+    path('kocktail', views.KListView, name='kocktail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
