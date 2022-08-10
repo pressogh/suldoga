@@ -14,4 +14,9 @@ def ModalView(request):
 
 
 def ListView(request):
-    return render(request, 'cocktail/list.html')
+    return render(request, 'cocktail/cocktail.html')
+
+
+def KListView(request):
+    return render(request, 'cocktail/kocktail.html')
+
