@@ -68,6 +68,11 @@
             text-decoration-line: none;
             color: #FFFFFF;
         }
+        .underLogout {
+            text-decoration-line: none;
+            color: #FFFFFF;
+            margin-left: 150px;
+        }
     </style>
 </head>
 
@@ -84,6 +89,9 @@
             <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;">
                 <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px; margin-right: 10px;"></div>
                 {{ request.user.first_name }}
+                <div class="liLogin">
+                    <a class="underLogout" href="{% url 'accounts:logout' %}">LOGOUT</a>
+                </div>
             </div>
             {% else %}
             <div class="liLogin">
