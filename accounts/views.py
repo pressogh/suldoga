@@ -50,3 +50,6 @@ def RegisterView(request):
     if request.method == 'GET':
         form = RegisterForm()
         return render(request, 'accounts/register.html', {'form': form})
+
+def Register2View(request):
+    return render(request, 'accounts/register2.html')
