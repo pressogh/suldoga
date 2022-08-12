@@ -4,6 +4,14 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'cocktail/main/index.css' %}">
     <script src="{% static 'cocktail/main/index.js' %}"></script>
+    <style>
+      /* 칵테일 div area */
+        .cocktailDiv {
+            width: min(100% - 2rem, 1800px);
+            margin-inline: auto;
+            height: 100%;
+        }
+    </style>
     <div>
           <!-- slide -->
     <div class="panel">
@@ -25,10 +33,11 @@
 
     <!-- 칵테일 카드 View List -->
     <section>
+      <div class="cocktailDiv">
         <div class="cardBox" style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 320px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -43,7 +52,7 @@
           <div class="cardBox" style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 225px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -57,7 +66,7 @@
           <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 125px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -72,7 +81,7 @@
           <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 25px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -86,7 +95,7 @@
             <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 320px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -100,7 +109,7 @@
             <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 225px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -114,7 +123,7 @@
             <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 125px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -128,7 +137,7 @@
             <div class="cardBox"  style="
             width: 280px;
             height: 300px;
-            left: 300px;
+            left: 25px;
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
@@ -139,6 +148,7 @@
                 <p>Margarita</p>
             </section>
         </div>
+      </div>
     </section>
 
     <!-- 더 알아보기 버튼 -->
