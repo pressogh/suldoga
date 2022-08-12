@@ -60,7 +60,8 @@ INSTALLED_APPS = [
 
     # My Apps
     'accounts',
-    'cocktail'
+    'cocktail',
+    'board'
 ]
 
 MIDDLEWARE = [
