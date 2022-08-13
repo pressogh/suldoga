@@ -20,3 +20,5 @@ def ListView(request):
 def KListView(request):
     return render(request, 'cocktail/kocktail.html')
 
+
+
