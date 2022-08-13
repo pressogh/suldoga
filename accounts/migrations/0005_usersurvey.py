@@ -7,24 +7,19 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    initial = True
-
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('accounts', '0004_alter_user_first_name'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name='UserSurvey',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('content', models.TextField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('type', models.CharField(choices=[('S', '증류주'), ('B', '양조주'), ('M', '혼성주')], max_length=1)),
+                ('sweet', models.CharField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], max_length=1)),
+                ('alcohol', models.IntegerField(choices=[('L', 'LOW'), ('M', 'MID'), ('H', 'HIGH')])),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'ordering': ['-id'],
-            },
         ),
     ]
