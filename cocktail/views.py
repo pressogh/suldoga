@@ -19,7 +19,3 @@ def KListView(request):
 
 def TestView(request):
     return render(request, 'cocktail/test.html')
-
-
-def TestView(request):
-    return render(request, 'cocktail/test.html')

@@ -3,7 +3,8 @@ from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.core.exceptions import ValidationError
+
+from .models import UserSurvey
 
 
 def LoginView(request):
@@ -42,8 +43,7 @@ def RegisterView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('cocktail:main'))
-            print(user)
+                return HttpResponseRedirect(reverse('accounts:survey'))
 
         return render(request, 'accounts/register.html', {'form': form})
 
@@ -51,5 +51,18 @@ def RegisterView(request):
         form = RegisterForm()
         return render(request, 'accounts/register.html', {'form': form})
 
-def Register2View(request):
-    return render(request, 'accounts/register2.html')
+
+def SurveyView(request):
+    if request.method == 'GET':
+        return render(request, 'accounts/survey.html')
+
+    elif request.method == 'POST':
+        alcohol_type = int(request.POST['alcohol-type'])
+        sweet_type = int(request.POST['sweet-type'])
+        degree_type = int(request.POST['degree-type'])
+
+        user = request.user
+        model = UserSurvey(user=user, type=alcohol_type, sweet=sweet_type, degree=degree_type)
+        model.save()
+
+        return HttpResponseRedirect(reverse('cocktail:main'))
