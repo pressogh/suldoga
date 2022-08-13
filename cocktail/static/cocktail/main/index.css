@@ -246,7 +246,7 @@
 .star-custom{
     display:none;
 }
-.modal-custom-button{
+.cardBox.modal-custom-button{
 
     padding: 5px 5px;
     background-color: rgba(0,0,0,0);
