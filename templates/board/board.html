@@ -22,10 +22,10 @@
                 {% for post in board_list %}
                 <tr>
                     <td>{{ forloop.revcounter }}</td>
-                    <td><a href="#">{{ post.title }}</a></td>
-                    <td>{{ post.author }}</td>
-                    <td>{{ post.body|truncatewords:5 }}</td>
-                    <td>{{ post.date|date:"Y-m-d" }}</td>
+                    <td><a href="{% url 'board:detail' post.id %}">{{ post.title }}</a></td>
+                    <td>{{ post.user }}</td>
+                    <td>{{ post.content|truncatewords:5 }}</td>
+                    <td>{{ post.created_at|date:"Y-m-d" }}</td>
                     <td></td>
                 </tr>
                 {% endfor %}

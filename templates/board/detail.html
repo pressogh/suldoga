@@ -15,8 +15,8 @@
             <tr>
                 <td>
                     <p>[글 내용]</p>
-                    {{ board_list.body|linebreaks }}
-                    <p><small style="color:silver;text-align:right;">[{{ board_list.date|date:"Y-m-d H:i:s" }}]</small></p>
+                    {{ board_list.content|linebreaks }}
+                    <p><small style="color:silver;text-align:right;">[{{ board_list.created_at|date:"Y-m-d H:i:s" }}]</small></p>
                 </td>
             </tr>
         </table>
