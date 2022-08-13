@@ -9,16 +9,16 @@ def InfoView(request):
     return render(request, 'cocktail/info.html')
 
 
-def ModalView(request):
-    return render(request, 'cocktail/modal.html')
-
-
 def ListView(request):
     return render(request, 'cocktail/cocktail.html')
 
 
 def KListView(request):
     return render(request, 'cocktail/kocktail.html')
+
+
+def TestView(request):
+    return render(request, 'cocktail/test.html')
 
 
 def TestView(request):
