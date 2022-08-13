@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from board.forms import PostUploadForm
 
 
 def ListView(request):
@@ -8,7 +9,8 @@ def ListView(request):
 
 def CreateView(request):
     if request.method == 'GET':
-        return render(request, 'community/create.html')
+        form = PostUploadForm()
+        return render(request, 'community/create.html', {'forms': form})
 
 
 def DetailView(request, post_id):

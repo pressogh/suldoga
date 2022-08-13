@@ -71,7 +71,6 @@
         .underLogout {
             text-decoration-line: none;
             color: #FFFFFF;
-            margin-left: 150px;
         }
     </style>
 </head>
@@ -87,8 +86,8 @@
             <a class="underLine" href="#">술 문화 공유</a>
             {% if request.user.is_authenticated %}
             <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;">
-                <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px;"></div>
-                <div>
+                <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px; margin-right: 10px;"></div>
+                <div style="margin-right: 20px;">
                 {{ request.user.username }}
                 </div>
                 <div class="liLogin">
