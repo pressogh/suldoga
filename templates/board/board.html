@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+
+<div class="container">
+    <div class="row pt-4 my-3">
+        <div class="col-md-12">
+            <h3>게시판</h3>
+        </div>
+    </div>
+    <div class="row my-3">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <th>No</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>발행일</th>
+                <th>비고</th>
+            </thead>
+            <tbody>
+                {% for post in board_list %}
+                <tr>
+                    <td>{{ forloop.revcounter }}</td>
+                    <td><a href="{% url 'board:detail' post.id %}">{{ post.title }}</a></td>
+                    <td>{{ post.user }}</td>
+                    <td>{{ post.content|truncatewords:5 }}</td>
+                    <td>{{ post.created_at|date:"Y-m-d" }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style="padding: 2px 20px; float:right;">
+            <a href="{% url 'board:regist' %}" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
