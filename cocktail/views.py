@@ -10,7 +10,8 @@ def InfoView(request):
 
 
 def ListView(request):
-    return render(request, 'cocktail/cocktail.html')
+    if request.method == 'GET':
+        return render(request, 'cocktail/cocktail.html')
 
 
 def KListView(request):
