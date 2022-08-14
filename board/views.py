@@ -21,7 +21,7 @@ def PostCreateView(request):
     return render(request, 'board/regist.html', context)
 
 
-def DetailView(request, pk):
-    board_list = get_object_or_404(Post, id=pk)
+def DetailView(request, post_id):
+    board_list = get_object_or_404(Post, id=post_id)
     context = {'board_list': board_list}
     return render(request, 'board/detail.html', context)
