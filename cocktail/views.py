@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Cocktail
 
 
 def MainView(request):
@@ -10,12 +11,13 @@ def InfoView(request):
 
 
 def ListView(request):
-    if request.method == 'GET':
-        return render(request, 'cocktail/cocktail.html')
+    cocktail = Cocktail.objects.filter(type="C")    # 테이블의 객체 불러와서 저장
+    return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail})
 
 
 def KListView(request):
-    return render(request, 'cocktail/kocktail.html')
+    kocktail = Cocktail.objects.filter(type="K")
+    return render(request, 'cocktail/kocktail.html', {"kocktail":kocktail})
 
 
 def TestView(request):
