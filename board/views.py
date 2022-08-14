@@ -1,18 +1,27 @@
-from django.shortcuts import render
-from board.forms import PostUploadForm
+from django.shortcuts import render,redirect, get_object_or_404
+from .models import Post
+from .forms import PostUploadForm
 
 
 def ListView(request):
-    if request.method == 'GET':
-        return render(request, 'community/main.html')
+    board_list = Post.objects.all().order_by('-created_at')
+    context = {'board_list': board_list}
+    return render(request, 'board/board.html', context)
 
 
-def CreateView(request):
-    if request.method == 'GET':
+def PostCreateView(request):
+    if request.method == 'POST':
+        form = PostUploadForm(request.POST)
+        if form.is_valid():
+             form.save()
+             return redirect('board:board')
+    else:
         form = PostUploadForm()
-        return render(request, 'community/create.html', {'forms': form})
+    context = {'form': form}
+    return render(request, 'board/regist.html', context)
 
 
 def DetailView(request, post_id):
-    if request.method == 'GET':
-        return render(request, 'community/detail.html')
+    board_list = get_object_or_404(Post, id=post_id)
+    context = {'board_list': board_list}
+    return render(request, 'board/detail.html', context)
