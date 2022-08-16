@@ -1,0 +1,87 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block content %}
+
+<!-- 칵테일 좋아요 -->
+<div class="cardBox" style="width: 280px; height: 300px; left: 300px; top: 808px;">
+    <button class="modal-custom-button" href="#myModal1">
+        <img class="modal-custom-button" href="#myModal1" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
+    </button>
+
+        <form action="{% url 'cocktail:likes' like_c.id %}" method='POST'>
+            {% csrf_token %}
+            {% if user in cocktail.likes.all %}
+              <input type="submit" value='좋아요 취소'>
+            {% else %}
+              <input type="submit" value='좋아요'>
+            {% endif %}
+          </form>
+
+    <section class="titleKr">
+        <p>블랙러시안</p>
+    </section>
+    <section class="titleEng">
+        <p>Black Russian</p>
+    </section>
+
+
+
+<!-- 정렬 -->
+<div id="sort-container">
+    <div id="sort-toggle">
+      <img
+        id="sort-btn"
+        src="{% static 'cocktail/images/arrow_sort.png' %}"
+        alt="arrow-sort"
+      /><span id="sort-btn-text">기본</span>
+    </div>
+
+    <!-- 정렬폼 -->
+    <form action="{% url 'cocktail' %}" method="GET">
+      {% csrf_token %}
+      <!-- 정렬 모달창 -->
+      <div id="modal-container">
+        <div id="sort-type">
+          <label for="sort-type-1">
+            <input
+              type="radio"
+              name="sort-type"
+              id="sort-type-1"
+              value="1"
+              checked
+            />
+            <span>기본</span>
+          </label>
+          <label for="sort-type-2">
+            <input type="radio" name="sort-type" id="sort-type-2" value="2" />
+            <span>별점순</span>
+          </label>
+          <label for="sort-type-3">
+            <input type="radio" name="sort-type" id="sort-type-3" value="3" />
+            <span>스크랩순</span>
+          </label>
+          <label for="sort-type-4">
+            <input type="radio" name="sort-type" id="sort-type-4" value="4" />
+            <span>도수순</span>
+          </label>
+          <label for="sort-type-5">
+            <input type="radio" name="sort-type" id="sort-type-5" value="5" />
+            <span>신상순</span>
+          </label>
+          <label for="sort-type-6">
+            <input type="radio" name="sort-type" id="sort-type-6" value="6" />
+            <span>여성인기</span>
+          </label>
+          <label for="sort-type-7">
+            <input type="radio" name="sort-type" id="sort-type-7" value="7" />
+            <span>남성인기</span>
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+{% endblock %}
