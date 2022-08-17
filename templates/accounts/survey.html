@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="{% static 'accounts/register2/index.css' %}"
+    />
+    <div class="container">
+        <div id="register-container">
+            <section id="title-container">
+                <span id="title">당신의 칵테일 취향을 알려주세요!</span>
+                <span id="later">
+                    <a href="{% url 'cocktail:main' %}" style="color: black;">
+                        나중에 하기
+                        <img
+                            id="later-btn"
+                            src="{% static 'images/arrow.png' %}"
+                            alt="arrow"
+                        />
+                    </a>
+                </span>
+            </section>
+
+            <form action="{% url 'accounts:survey' %}" method="post">
+                {% csrf_token %}
+                <section class="question-container">
+                    <div class="question-title">Q1</div>
+                    <div class="question-content">선호하는 주류 타입을 골라주세요</div>
+                    <div class="type" id="alcohol-type">
+                        <label for="alcohol-type-1">
+                            <input
+                                type="radio"
+                                name="alcohol-type"
+                                id="alcohol-type-1"
+                                value="1"
+                            />
+                        </label>
+                        <label for="alcohol-type-2">
+                            <input
+                                type="radio"
+                                name="alcohol-type"
+                                id="alcohol-type-2"
+                                value="2"
+                            />
+                        </label>
+                        <label for="alcohol-type-3">
+                            <input
+                                type="radio"
+                                name="alcohol-type"
+                                id="alcohol-type-3"
+                                value="3"
+                            />
+                        </label>
+                        <label for="alcohol-type-4">
+                            <input
+                                type="radio"
+                                name="alcohol-type"
+                                id="alcohol-type-4"
+                                value="4"
+                            />
+                        </label>
+                    </div>
+                </section>
+
+                <hr />
+
+                <section class="question-container">
+                    <div class="question-title">Q2</div>
+                    <div class="question-content">
+                        달콤함의 정도는 어느정도가 적당합니까?
+                    </div>
+                    <div class="type" id="sweet-type">
+                        <label for="sweet-type-1">
+                            <input type="radio" name="sweet-type" id="sweet-type-1" value="1" />
+                            <p>쓴맛</p>
+                        </label>
+                        <label for="sweet-type-2">
+                            <input type="radio" name="sweet-type" id="sweet-type-2" value="2" />
+                        </label>
+                        <label for="sweet-type-2">
+                            <input type="radio" name="sweet-type" id="sweet-type-2" value="3" />
+                            <p>중간</p>
+                        </label>
+                        <label for="sweet-type-2">
+                            <input type="radio" name="sweet-type" id="sweet-type-2" value="4" />
+                        </label>
+                        <label for="sweet-type-2">
+                            <input type="radio" name="sweet-type" id="sweet-type-2" value="5" />
+                            <p>단맛</p>
+                        </label>
+                    </div>
+                </section>
+                <hr />
+
+                <section class="question-container">
+                    <div class="question-title">Q3</div>
+                    <div class="question-content">도수는 어느정도가 적당합니까?</div>
+                    <div id="degree-type">
+                        <label for="degree-type-1">
+                            <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-1"
+                                value="1"
+                            />
+                            <p>낮음</p>
+                            <p>10도 미만</p>
+                        </label>
+                        <label for="degree-type-2">
+                            <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-2"
+                                value="2"
+                            />
+                            <p>중간</p>
+                            <p>10도 이상 ~ 25도 미만</p>
+                        </label>
+                        <label for="degree-type-3">
+                            <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-3"
+                                value="3"
+                            />
+                            <p>높음</p>
+                            <p>25도 이상</p>
+                        </label>
+                    </div>
+                </section>
+
+                <input
+                    type="submit"
+                    class="register-btn"
+                    id="register2-btn"
+                    value="회원가입 완료"
+                />
+            </form>
+        </div>
+    </div>
+{% endblock %}
