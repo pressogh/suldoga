@@ -1,30 +1,27 @@
-{% extends "base.html"%}
-{% load static %}
+{% extends "base.html"%} {% load static %} {% block content %}
 
-{% block content %}
-
-<link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="{% static 'cocktail/list/js/common.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script defer src="{% static 'cocktail/list/js/common.js' %}"></script>
     
 <section>
-  <h3>Cocktail</h3>
-  <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
-  <div class="inner">
-    <div class="searching">
-      <i class="fas fa-search"></i>
+    <h3>Cocktail</h3>
+    <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
+    <div class="inner">
+        <div class="searching">
+            <i class="fas fa-search"></i>
+        </div>
+        <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+            onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
     </div>
-    <input
-      class="search-txt"
-      type="search"
-      id="keyword"
-      placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
-      onfocus="this.placeholder=''"
-      onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'"
-    />
-  </div>
 </section>
 <section class="chkbox">
   <div class="contaniner">
@@ -44,48 +41,23 @@
         /><span id="sort-btn-text">기본</span>
       </div>
 
-      <!-- 정렬폼 -->
-      <form action="" method="post">
-        {% csrf_token %}
-        <!-- 정렬 모달창 -->
-        <div id="modal-container">
-          <div id="sort-type">
-            <label for="sort-type-1">
-              <input
-                type="radio"
-                name="sort-type"
-                id="sort-type-1"
-                value="1"
-                checked
-              />
-              <span>기본</span>
-            </label>
-            <label for="sort-type-2">
-              <input type="radio" name="sort-type" id="sort-type-2" value="2" />
-              <span>별점순</span>
-            </label>
-            <label for="sort-type-3">
-              <input type="radio" name="sort-type" id="sort-type-3" value="3" />
-              <span>스크랩순</span>
-            </label>
-            <label for="sort-type-4">
-              <input type="radio" name="sort-type" id="sort-type-4" value="4" />
-              <span>도수순</span>
-            </label>
-            <label for="sort-type-5">
-              <input type="radio" name="sort-type" id="sort-type-5" value="5" />
-              <span>신상순</span>
-            </label>
-            <label for="sort-type-6">
-              <input type="radio" name="sort-type" id="sort-type-6" value="6" />
-              <span>여성인기</span>
-            </label>
-            <label for="sort-type-7">
-              <input type="radio" name="sort-type" id="sort-type-7" value="7" />
-              <span>남성인기</span>
-            </label>
-          </div>
+    <section>
+        <h3>Cocktail</h3>
+        <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input
+                    class="search-txt"
+                    type="search"
+                    id="keyword"
+                    placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+                    onfocus="this.placeholder=''"
+                    onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'"
+            />
         </div>
+        
       </form>
     </div>
   </div>
@@ -344,7 +316,7 @@
 
 
   </div>
-  <div class="cardBox">
+  <div class="cardBox" ">
 
       <button class="modal-custom-button" href="#myModal5">
           <img class="modal-custom-button" href="#myModal5" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
@@ -596,7 +568,7 @@
       
   </div>
 </section>
-
+   
 <script>
   // Get the button that opens the modal
   var btn = document.querySelectorAll("button.modal-custom-button");
@@ -629,13 +601,7 @@
   }
 
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-      if (event.target.classList.contains('modal-custom')) {
-          for (var index in modals) {
-              if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
-          }
-      }
-  }
+
 
 </script>
 

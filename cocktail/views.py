@@ -18,7 +18,7 @@ def ListView(request):
 
 def KListView(request):
     kocktail = Cocktail.objects.filter(type="K")
-    return render(request, 'cocktail/kocktail.html', {"kocktail":kocktail})
+    return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
 
 
 def TestView(request):

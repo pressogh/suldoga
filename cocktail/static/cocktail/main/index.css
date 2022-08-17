@@ -26,6 +26,12 @@
     text-align: right;
     color: #F0F0F0;
 }
+ /* 칵테일 div area */
+.cocktailArea {
+    width: min(100% - 2rem, 1800px);
+    margin-inline: auto;
+    height: 100%;
+}
 
 /* 칵테일 제조 버튼 */
 .produceBtn {
@@ -206,7 +212,7 @@
     position: absolute;
     width: 1180px;
     height: 144px;
-    bottom: -1520px;
+    bottom: -1710px;
     background: #040A04;
     border-radius: 12px 12px 0px 0px;
     left: 50%;
