@@ -11,11 +11,11 @@
 <script>
     //칵테일 검색 영어 문자열이 같은 경우만 출력
     window.onload = function () {
-      
+
   console.log("test");
 const modal = document.querySelector("#modal-container");
 const sortBtn = document.querySelector("#sort-container");
- 
+
 
 sortBtn.addEventListener("click", () => {
   console.log("test");
@@ -100,124 +100,20 @@ sortBtn.addEventListener("click", () => {
 </div>
 </section>
 
- <!-- 칵테일 카드 View List -->
- <section class="coclist">
-    <div class="cocktailDiv">
-      <div class="cardBox" style="
-          width: 280px;
-          height: 300px;
-          left: 350px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-
-          <section class="titleKr">
-            <p>블랙러시안</p>
-          </section>
-          <section class="titleEng">
-              <p>Black Russian</p>
-            </section>
-        </div>
-        <div class="cardBox" style="
-          width: 280px;
-          height: 300px;
-          left: 300px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>잭콕</p>
-          </section>
-          <section class="titleEng">
-              <p>Jack & Coke</p>
-            </section>
-        </div>
-        <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 260px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>데킬라 선라이즈</p>
-          </section>
-          <section class="titleEng">
-              <p>Tequila Sunrise</p>
-            </section>
-        </div>
-
-        <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 225px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>스크류 드라이버</p>
-          </section>
-          <section class="titleEng">
-              <p>Screw Driver</p>
-            </section>
-        </div>
-          <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 350px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-              <p>보드카 크랜베리</p>
-          </section>
-          <section class="titleEng">
-              <p>Vodka Cranberry</p>
-              </section>
-          </div>
-          <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 300px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-          <p>깔루아 밀크</p>
-          </section>
-          <section class="titleEng">
-              <p>Kahlua Milk</p>
-          </section>
-      </div>
-          <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 260px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-              <p>진 토닉</p>
-          </section>
-          <section class="titleEng">
-              <p>Gin and Tonic</p>
-              </section>
-          </div>
-          <div class="cardBox"  style="
-          width: 280px;
-          height: 300px;
-          left: 225px;
-          top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-          <p>마가리타</p>
-          </section>
-          <section class="titleEng">
-              <p>Margarita</p>
-          </section>
-      </div>
-    </div>
-  </section>
+    <!-- 칵테일 카드 View List -->
+    <section class="coclist">
+        {% for cock in cocktail %}
+            <div class="cardBox">
+                <img class="thumbnail" src="{{ cock.image }}" />
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>{{ cock.name }}</p>
+                </section>
+                <section class="titleEng">
+                    <p>{{ cock.eng_name }}</p>
+                </section>
+            </div>
+        {% endfor %}
+    </section>
 
 {% endblock %}

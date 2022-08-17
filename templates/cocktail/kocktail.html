@@ -3,171 +3,171 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="{% static 'cocktail/list/js/common.js' %}"></script>
-<script>
-    //칵테일 검색 영어 문자열이 같은 경우만 출력
-    window.onload = function () {
-  $('#keyword').keyup(function () {
-    var k = $(this).val();
-    $(' .coclist > .cocktailDiv >.cardBox').hide();
-    var temp = $(
-      ".coclist > .cocktailDiv > .cardBox > .titleKr +.titleEng:contains('" +
-        k +
-        "')"
-    );
+    <link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'cocktail/list/js/common.js' %}"></script>
+    <script>
+        //칵테일 검색 영어 문자열이 같은 경우만 출력
+        window.onload = function () {
+            $('#keyword').keyup(function () {
+                var k = $(this).val();
+                $(' .coclist > .cocktailDiv >.cardBox').hide();
+                var temp = $(
+                    ".coclist > .cocktailDiv > .cardBox > .titleKr +.titleEng:contains('" +
+                    k +
+                    "')"
+                );
 
-    $(temp).parent().show();
-  });
-}
-</script>
-<style>
-    /* 칵테일 div area */
-      .cocktailDiv {
-          width: min(100% - 2rem, 1800px);
-          margin-inline: auto;
-          height: 100%;
-      }
-  </style>
-<section>
-    <h3>K-ocktail</h3>
-    <p>여러가지 우리나라 술과 재료를 혼합하여 만든 혼합주</p>
-    <div class="inner">
-        <div class="searching">
-            <i class="fas fa-search"></i>
+                $(temp).parent().show();
+            });
+        }
+    </script>
+    <style>
+        /* 칵테일 div area */
+        .cocktailDiv {
+            width: min(100% - 2rem, 1800px);
+            margin-inline: auto;
+            height: 100%;
+        }
+    </style>
+    <section>
+        <h3>K-ocktail</h3>
+        <p>여러가지 우리나라 술과 재료를 혼합하여 만든 혼합주</p>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+                   onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
         </div>
-        <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
-            onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
-    </div>
-</section>
-<section class="chkbox">
-    <div class="contaniner">
-        <label><input type="checkbox" class="chk" name="" value="칵테일">칵테일</label>
-        <label><input type="checkbox" class="chk" name="" value="재료">재료</label>
-    </div>
-</section>
+    </section>
+    <section class="chkbox">
+        <div class="contaniner">
+            <label><input type="checkbox" class="chk" name="" value="칵테일">칵테일</label>
+            <label><input type="checkbox" class="chk" name="" value="재료">재료</label>
+        </div>
+    </section>
 
- <!-- 칵테일 카드 View List -->
- <section class="coclist">
-    <div class="cocktailDiv">
-      <div class="cardBox" style="
+    <!-- 칵테일 카드 View List -->
+    <section class="coclist">
+        <div class="cocktailDiv">
+            <div class="cardBox" style="
           width: 280px;
           height: 300px;
           left: 350px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
 
-          <section class="titleKr">
-            <p>블랙러시안</p>
-          </section>
-          <section class="titleEng">
-              <p>Black Russian</p>
-            </section>
-        </div>
-        <div class="cardBox" style="
+                <section class="titleKr">
+                    <p>블랙러시안</p>
+                </section>
+                <section class="titleEng">
+                    <p>Black Russian</p>
+                </section>
+            </div>
+            <div class="cardBox" style="
           width: 280px;
           height: 300px;
           left: 300px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>잭콕</p>
-          </section>
-          <section class="titleEng">
-              <p>Jack & Coke</p>
-            </section>
-        </div>
-        <div class="cardBox"  style="
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>잭콕</p>
+                </section>
+                <section class="titleEng">
+                    <p>Jack & Coke</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 260px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>데킬라 선라이즈</p>
-          </section>
-          <section class="titleEng">
-              <p>Tequila Sunrise</p>
-            </section>
-        </div>
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>데킬라 선라이즈</p>
+                </section>
+                <section class="titleEng">
+                    <p>Tequila Sunrise</p>
+                </section>
+            </div>
 
-        <div class="cardBox"  style="
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 225px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-            <p>스크류 드라이버</p>
-          </section>
-          <section class="titleEng">
-              <p>Screw Driver</p>
-            </section>
-        </div>
-          <div class="cardBox"  style="
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>스크류 드라이버</p>
+                </section>
+                <section class="titleEng">
+                    <p>Screw Driver</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 350px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-              <p>보드카 크랜베리</p>
-          </section>
-          <section class="titleEng">
-              <p>Vodka Cranberry</p>
-              </section>
-          </div>
-          <div class="cardBox"  style="
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>보드카 크랜베리</p>
+                </section>
+                <section class="titleEng">
+                    <p>Vodka Cranberry</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 300px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-          <p>깔루아 밀크</p>
-          </section>
-          <section class="titleEng">
-              <p>Kahlua Milk</p>
-          </section>
-      </div>
-          <div class="cardBox"  style="
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>깔루아 밀크</p>
+                </section>
+                <section class="titleEng">
+                    <p>Kahlua Milk</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 260px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-              <p>진 토닉</p>
-          </section>
-          <section class="titleEng">
-              <p>Gin and Tonic</p>
-              </section>
-          </div>
-          <div class="cardBox"  style="
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>진 토닉</p>
+                </section>
+                <section class="titleEng">
+                    <p>Gin and Tonic</p>
+                </section>
+            </div>
+            <div class="cardBox"  style="
           width: 280px;
           height: 300px;
           left: 225px;
           top: 100px;">
-          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
-          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-          <section class="titleKr">
-          <p>마가리타</p>
-          </section>
-          <section class="titleEng">
-              <p>Margarita</p>
-          </section>
-      </div>
-    </div>
-  </section>
+                <img class="thumbnail" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
+                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <section class="titleKr">
+                    <p>마가리타</p>
+                </section>
+                <section class="titleEng">
+                    <p>Margarita</p>
+                </section>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
