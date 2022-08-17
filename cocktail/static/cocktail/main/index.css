@@ -27,6 +27,12 @@
     color: #F0F0F0;
 }
 
+ /* 칵테일 div area */
+ .cocktailDiv {
+    width: min(100% - 2rem, 1800px);
+    margin-inline: auto;
+    height: 100%;
+}
 /* 칵테일 제조 버튼 */
 .produceBtn {
     box-sizing: border-box;
