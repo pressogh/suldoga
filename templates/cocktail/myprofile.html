@@ -1,0 +1,4 @@
+{% for cocktail in cocktail_likes  %}
+<a href="{%url 'read' cocktail.id%}">{{cocktail.name}}</p>
+<p>{{cocktail.image}}</p>
+{% endfor %} 

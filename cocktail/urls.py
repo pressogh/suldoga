@@ -9,4 +9,5 @@ urlpatterns = [
     path('cocktail', views.ListView, name='cocktail'),
     path('kocktail', views.KListView, name='kocktail'),
     path('test', views.TestView, name='test'),
+    path('like/<int:cocktails_id>', views.LikeView, name="likes"),
 ]
