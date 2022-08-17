@@ -1,23 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %} 
+<link rel="stylesheet" type="text/css" href="{% static 'board/board.css' %}">
 
-<div class="container">
-    <div class="row pt-4 my-3">
-        <div class="col-md-12">
-            <h3>글 등록</h3>
-        </div>
-    </div>
-    <div class="row my-3"></div>
+
+<p class="uploadText">당신이 알고 있는 다양한 술 문화를 공유해주세요!</p>
+<a href="{% url 'board:board' %}" class="">글 작성 취소</a>
+<div class="uploadArea"> 
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <div style="padding:5px 50px; float:right;">
-                <input class="btn btn-primary" type="submit" value="글 등록">
-                <a href="#" class="btn btn-primary">글 목록</a>
+            
+            <div class="uploadBtn">
+                <input class="inputText" type="submit" value="업로드하기">
             </div>
         </form>
-       
 </div>
 {% endblock %}
 
