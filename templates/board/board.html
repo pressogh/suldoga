@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %} 
+<link rel="stylesheet" type="text/css" href="{% static 'board/board.css' %}">
 
 <div class="container">
     <div class="row pt-4 my-3">
@@ -31,8 +32,8 @@
                 {% endfor %}
             </tbody>
         </table>
-        <div style="padding: 2px 20px; float:right;">
-            <a href="{% url 'board:create' %}" class="btn btn-primary">글 등록</a>
+        <div class="uploadBtn">
+            <a class="aText" href="{% url 'board:create' %}">글 작성하기</a>
         </div>
     </div>
 </div>
