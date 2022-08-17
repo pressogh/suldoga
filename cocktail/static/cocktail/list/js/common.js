@@ -1,11 +1,9 @@
 window.onload = function () {
   $('#keyword').keyup(function () {
     var k = $(this).val();
-    $(' .coclist > .cocktailDiv >.cardBox').hide();
+    $('.coclist > .cardBox').hide();
     var temp = $(
-      ".coclist > .cocktailDiv > .cardBox > .titleKr +.titleEng:contains('" +
-        k +
-        "')"
+      ".coclist > .cardBox > .titleKr+.titleEng:contains('" + k + "')"
     );
 
     $(temp).parent().show();
@@ -19,3 +17,10 @@ window.onload = function () {
     check = !check;
   }
 };
+
+//정렬 모달창 토글
+const modal = document.querySelector('#modal-container');
+const sortBtn = document.querySelector('#sort-toggle');
+sortBtn.addEventListener('click', () => {
+  modal.classList.toggle('show');
+});
