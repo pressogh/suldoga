@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import json
 import os
 import sys
-import pymysql
-pymysql.install_as_MySQLdb()
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
