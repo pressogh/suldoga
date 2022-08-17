@@ -67,6 +67,12 @@
     text-align: center;
 }
 
+/* 칵테일 div area */
+.cocktailDiv {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+    height: 100%;
+}
 
 /* 칵테일 Card View */
 .cardBox {
