@@ -8,103 +8,216 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="{% static 'cocktail/list/js/common.js' %}"></script>
-    
+<script>
+    //칵테일 검색 영어 문자열이 같은 경우만 출력
+    window.onload = function () {
+      
+  console.log("test");
+const modal = document.querySelector("#modal-container");
+const sortBtn = document.querySelector("#sort-container");
+ 
+
+sortBtn.addEventListener("click", () => {
+  console.log("test");
+  modal.classList.toggle("show");
+});
+}
+
+//정렬 모달창 토글
+
+</script>
+<style>
+    /* 칵테일 div area */
+      .cocktailDiv {
+          width: min(100% - 2rem, 1800px);
+          margin-inline: auto;
+          height: 100%;
+      }
+  </style>
 <section>
-  <h3>Cocktail</h3>
-  <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
-  <div class="inner">
-    <div class="searching">
-      <i class="fas fa-search"></i>
+    <h3>Cocktail</h3>
+    <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
+    <div class="inner">
+        <div class="searching">
+            <i class="fas fa-search"></i>
+        </div>
+        <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+            onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
     </div>
-    <input
-      class="search-txt"
-      type="search"
-      id="keyword"
-      placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
-      onfocus="this.placeholder=''"
-      onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'"
-    />
-  </div>
 </section>
 <section class="chkbox">
-  <div class="contaniner">
-    <label
-      ><input type="checkbox" class="chk" name="" value="칵테일" />칵테일</label
-    >
-    <label
-      ><input type="checkbox" class="chk" name="" value="재료" />재료</label
-    >
-    <!-- 정렬버튼 -->
-    <div id="sort-container">
-      <div id="sort-toggle">
-        <img
-          id="sort-btn"
-          src="{% static 'cocktail/images/arrow_sort.png' %}"
-          alt="arrow-sort"
-        /><span id="sort-btn-text">기본</span>
-      </div>
-
-      <!-- 정렬폼 -->
-      <form action="" method="post">
-        {% csrf_token %}
-        <!-- 정렬 모달창 -->
-        <div id="modal-container">
-          <div id="sort-type">
-            <label for="sort-type-1">
-              <input
-                type="radio"
-                name="sort-type"
-                id="sort-type-1"
-                value="1"
-                checked
-              />
-              <span>기본</span>
-            </label>
-            <label for="sort-type-2">
-              <input type="radio" name="sort-type" id="sort-type-2" value="2" />
-              <span>별점순</span>
-            </label>
-            <label for="sort-type-3">
-              <input type="radio" name="sort-type" id="sort-type-3" value="3" />
-              <span>스크랩순</span>
-            </label>
-            <label for="sort-type-4">
-              <input type="radio" name="sort-type" id="sort-type-4" value="4" />
-              <span>도수순</span>
-            </label>
-            <label for="sort-type-5">
-              <input type="radio" name="sort-type" id="sort-type-5" value="5" />
-              <span>신상순</span>
-            </label>
-            <label for="sort-type-6">
-              <input type="radio" name="sort-type" id="sort-type-6" value="6" />
-              <span>여성인기</span>
-            </label>
-            <label for="sort-type-7">
-              <input type="radio" name="sort-type" id="sort-type-7" value="7" />
-              <span>남성인기</span>
-            </label>
-          </div>
-        </div>
-      </form>
+    <div class="contaniner">
+        <label><input type="checkbox" class="chk" name="" value="칵테일">칵테일</label>
+        <label><input type="checkbox" class="chk" name="" value="재료">재료</label>
     </div>
-  </div>
 </section>
 
-<!-- 칵테일 카드 View List -->
-<section class="coclist">
-    {% for cock in cocktail %}
-        <div class="cardBox">
-            <img class="thumbnail" src="{{ cock.image }}" />
-            <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-            <section class="titleKr">
-                <p>{{ cock.name }}</p>
-            </section>
-            <section class="titleEng">
-                <p>{{ cock.eng_name }}</p>
+ <!-- 정렬버튼 -->
+ <div id="sort-container">
+  <svg id="sort-btn" width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.2509 1.82665e-06L16.1491 0.00685159C15.783 0.0565116 15.5009 0.370302 15.5009 0.750002L15.5 13.442L12.2801 10.2244L12.196 10.1518C11.9023 9.9341 11.4856 9.9585 11.2194 10.2248C10.9267 10.5179 10.9269 10.9927 11.2199 11.2855L15.7237 15.7855L15.8078 15.8581C16.1015 16.0758 16.5182 16.0514 16.7843 15.7851L21.2806 11.2851L21.3531 11.2009C21.5709 10.9072 21.5465 10.4905 21.2801 10.2244L21.196 10.1518C20.9023 9.9341 20.4856 9.9585 20.2194 10.2248L17 13.446L17.0009 0.750002L16.994 0.648232C16.9444 0.282152 16.6306 1.82665e-06 16.2509 1.82665e-06ZM5.21441 0.219692L0.719651 4.71474L0.647041 4.79886C0.429191 5.09248 0.453411 5.50914 0.719691 5.7754L0.803811 5.84802C1.09743 6.0659 1.51409 6.0416 1.78035 5.77537L4.997 2.55711L4.99766 15.2549L5.00451 15.3567C5.05417 15.7228 5.36797 16.0049 5.74766 16.0049L5.84943 15.9981C6.21551 15.9484 6.49766 15.6346 6.49766 15.2549L6.497 2.55911L9.7199 5.77596L9.8041 5.84849C10.0979 6.066 10.5145 6.0414 10.7805 5.77481C11.0731 5.4816 11.0726 5.00672 10.7794 4.71415L6.27451 0.219092L6.19038 0.146612C5.89676 -0.0707984 5.48047 -0.0463883 5.21441 0.219692Z" fill="#040A04"/>
+    </svg>
+    <span id="sort-btn-text">기본</span>
+
+  <!-- 정렬폼 -->
+  <form action="" method="post">
+    {% csrf_token %}
+    <!-- 정렬 모달창 -->
+    <div id="modal-container">
+      <div id="sort-type">
+        <label for="sort-type-1">
+          <input type="radio" name="sort-type" id="sort-type-1" value="1" />
+          <span>기본</span>
+        </label>
+        <label for="sort-type-2">
+          <input type="radio" name="sort-type" id="sort-type-2" value="2" />
+          <span>별점순</span>
+        </label>
+        <label for="sort-type-3">
+          <input type="radio" name="sort-type" id="sort-type-3" value="3" />
+          <span>스크랩순</span>
+        </label>
+        <label for="sort-type-4">
+          <input type="radio" name="sort-type" id="sort-type-4" value="4" />
+          <span>도수순</span>
+        </label>
+        <label for="sort-type-5">
+          <input type="radio" name="sort-type" id="sort-type-5" value="5" />
+          <span>신상순</span>
+        </label>
+        <label for="sort-type-6">
+          <input type="radio" name="sort-type" id="sort-type-6" value="6" />
+          <span>여성인기</span>
+        </label>
+        <label for="sort-type-7">
+          <input type="radio" name="sort-type" id="sort-type-7" value="7" />
+          <span>남성인기</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+</section>
+
+ <!-- 칵테일 카드 View List -->
+ <section class="coclist">
+    <div class="cocktailDiv">
+      <div class="cardBox" style="
+          width: 280px;
+          height: 300px;
+          left: 350px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+
+          <section class="titleKr">
+            <p>블랙러시안</p>
+          </section>
+          <section class="titleEng">
+              <p>Black Russian</p>
             </section>
         </div>
-    {% endfor %}
-</section>
+        <div class="cardBox" style="
+          width: 280px;
+          height: 300px;
+          left: 300px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+            <p>잭콕</p>
+          </section>
+          <section class="titleEng">
+              <p>Jack & Coke</p>
+            </section>
+        </div>
+        <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 260px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+            <p>데킬라 선라이즈</p>
+          </section>
+          <section class="titleEng">
+              <p>Tequila Sunrise</p>
+            </section>
+        </div>
+
+        <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 225px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+            <p>스크류 드라이버</p>
+          </section>
+          <section class="titleEng">
+              <p>Screw Driver</p>
+            </section>
+        </div>
+          <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 350px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+              <p>보드카 크랜베리</p>
+          </section>
+          <section class="titleEng">
+              <p>Vodka Cranberry</p>
+              </section>
+          </div>
+          <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 300px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+          <p>깔루아 밀크</p>
+          </section>
+          <section class="titleEng">
+              <p>Kahlua Milk</p>
+          </section>
+      </div>
+          <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 260px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+              <p>진 토닉</p>
+          </section>
+          <section class="titleEng">
+              <p>Gin and Tonic</p>
+              </section>
+          </div>
+          <div class="cardBox"  style="
+          width: 280px;
+          height: 300px;
+          left: 225px;
+          top: 100px;">
+          <img class="thumbnail" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
+          <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+          <section class="titleKr">
+          <p>마가리타</p>
+          </section>
+          <section class="titleEng">
+              <p>Margarita</p>
+          </section>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}
