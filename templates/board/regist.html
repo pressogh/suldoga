@@ -5,7 +5,7 @@
 
 
 <p class="uploadText">당신이 알고 있는 다양한 술 문화를 공유해주세요!</p>
-<a href="{% url 'board:board' %}" class="">글 작성 취소</a>
+<a class="preText" href="{% url 'board:board' %}">< 이전</a>
 <div class="uploadArea"> 
         <form action="" method="post">
             {% csrf_token %}
@@ -17,4 +17,3 @@
         </form>
 </div>
 {% endblock %}
-
