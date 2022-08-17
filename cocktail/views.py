@@ -3,7 +3,8 @@ from .models import Cocktail
 
 
 def MainView(request):
-    return render(request, 'cocktail/main.html')
+    cocktail = Cocktail.objects.filter(type="C")
+    return render(request, 'cocktail/main.html', {"cock":cocktail})
 
 
 def InfoView(request):
