@@ -2,16 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static 'cocktail/main/index.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'cocktail/main/index.css' %}">
     <script src="{% static 'cocktail/main/index.js' %}"></script>
-    <style>
-      /* 칵테일 div area */
-        .cocktailDiv {
-            width: min(100% - 2rem, 1800px);
-            margin-inline: auto;
-            height: 100%;
-        }
-    </style>
+
     <div>
           <!-- slide -->
     <div class="panel">
@@ -30,10 +23,9 @@
             onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;🍸'">
         </div>
     </section>
-
     <!-- 칵테일 카드 View List -->
     <section>
-      <div class="cocktailDiv">
+      <div class="cocktailArea">
         <div class="cardBox" style="
             width: 280px;
             height: 300px;
