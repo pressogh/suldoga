@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href="step3.css">
+    <title>술도가</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer{
+            height: 165px;
+            position : relative;
+            transform : translateY(-100%);
+            background: #040A04;
+            text-align : center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+          height: auto;
+          min-height: 100%;
+          padding-bottom: 165px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #ADADAD;
+        }
+
+        /* 상단 navbar */
+        .navStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #040A04;
+            position: fixed;
+            width: 100%;
+            height: 84px;
+            left: 0;
+            top: 0;
+            z-index: 3;
+
+            /* font */
+            font-family: 'Pretendard', system-ui;
+            font-weight: 200;
+            font-size: 18px;
+        }
+
+        .navContent {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+        }
+
+        /* liLogin */
+        .liLogin {
+            font-family: 'Inter', system-ui;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .underLogin {
+            text-decoration-line: none;
+            color: #FFFFFF;
+        }
+        .underLogout {
+            text-decoration-line: none;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<header>
+    <nav class="navStyle">
+        <div class="navContent">
+            <a class="underLine" href="{% url 'cocktail:main' %}">Logo영역</a>
+            <a class="underLine" href="{% url 'cocktail:info' %}">칵테일 정보</a>
+            <a class="underLine" href="{% url 'cocktail:cocktail' %}">Cocktail</a>
+            <a class="underLine" href="{% url 'cocktail:kocktail' %}">K-ocktail</a>
+            <a class="underLine" href="#">술 조합 추천</a>
+            <a class="underLine" href="{% url 'board:board' %}">술 문화 공유</a>
+            {% if request.user.is_authenticated %}
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;">
+                <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px; margin-right: 10px;"></div>
+                <div style="margin-right: 20px;">
+                {{ request.user.username }}
+                </div>
+                <div class="liLogin">
+                    <a class="underLogout" href="{% url 'accounts:logout' %}">LOGOUT</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="liLogin">
+                <a class="underLogin" href="{% url 'accounts:login' %}">LOGIN</a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="wrapper">
+       {% block content %}
+       <!--타이틀-->
+        <p class = "title">당신만의 다채로운 술 조합을 추천해주세요!</p> 
+        
+        <!--step progress-->
+        <div class = "progress">
+            <img id = "progress-bar" src = "step3_image/progress.png"/>
+        </div>
+        
+        <!--박스 생성 및 이미지 삽입 step2에서 가져오는 방법을 몰라 디자인 시안대로 디자인(수정 필요!)-->
+        <section id = "boxcontainter">
+            <div class = "mainbox">
+                <div class = "left_box">
+                    <table>
+                        <tr>
+                            <td>
+                                <img class = "base" src = "step3_image/A_jin.png"/>
+                                <p>봄베이 사파이어</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img class = "plus" src  = "step3_image/Vector.png"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img class = "bvg1" src = "step3_image/tonic.png"/>
+                                <p>토닉워터</p>
+                            </td>
+                            <td>
+                                <img class = "bvg2" src = "step3_image/cider.png"/>
+                                <p>사이다</p>
+                            </td>
+                            <td>
+                                <img class = "ingredient" src = "step3_image/remon.png"/>
+                                <p>레몬즙</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!--세로줄-->
+                <div class='v-line'></div>
+
+                <div class ="right_box">
+                    <section class = "question-container">
+                        <div>
+                            <a class="question-number">Q1.</a>
+                            <a class="question-title">나만의 술 조합에 이름을 지어주세요.</a>
+                        </div>
+                        <input type="text" id = "question-answer" placeholder="이름을 입력하세요.">
+                    </section>
+                   
+                    <section class="question-container">
+                        <div>
+                            <a class="question-number">Q2.</a>
+                            <a class="question-title">달콤함의 정도</a>
+                        </div>
+                        <div class="type" id="sweet-type">
+                            <label for="sweet-type-1">
+                                <input type="radio" name="sweet-type" id="sweet-type-1" value="1" />
+                                <p>쓴맛</p>
+                            </label>
+                            <label for="sweet-type-2">
+                                <input type="radio" name="sweet-type" id="sweet-type-2" value="2" />
+                            </label>
+                            <label for="sweet-type-2">
+                                <input type="radio" name="sweet-type" id="sweet-type-2" value="3" />
+                                <p>중간</p>
+                            </label>
+                            <label for="sweet-type-2">
+                                <input type="radio" name="sweet-type" id="sweet-type-2" value="4" />
+                            </label>
+                            <label for="sweet-type-2">
+                                <input type="radio" name="sweet-type" id="sweet-type-2" value="5" />
+                                <p>단맛</p>
+                            </label>
+                        </div>
+                    </section>
+                
+                    <section class="question-container">
+                        <div>
+                            <a class="question-number">Q3.</a>
+                            <a class="question-title">도수의 정도</a>
+                        </div>
+                        <div class = "type" id="degree-type">
+                            <label for="degree-type-1">
+                                <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-1"
+                                value="1"
+                                />
+                                <p>낮음</p>
+                                <p>10도 미만</p>
+                            </label>
+                            <label for="degree-type-2">
+                                <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-2"
+                                value="2"
+                                />
+                                <p>중간</p>
+                                <p>10도 이상 ~ 25도 미만</p>
+                            </label>
+                            <label for="degree-type-3">
+                                <input
+                                type="radio"
+                                name="degree-type"
+                                id="degree-type-3"
+                                value="3"
+                                />
+                                <p>높음</p>
+                                <p>25도 이상</p>
+                            </label>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+       
+        <!--완료버튼-->
+        <button class = "finish_button" type="button" onclick="">완료</button>
+    </div>
+</body>
+
+<!--
+<footer class="copyright">
+    <img src="{% static 'cocktail/images/copyright.png' %}" alt="" width="600" height="50"/>
+</footer>
+-->
+</html>
+
+{% endblock %}
