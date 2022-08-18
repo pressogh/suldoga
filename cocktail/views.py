@@ -29,7 +29,7 @@ def TestView(request):
     return render(request, 'cocktail/test.html')
 
 
-def LikeView(request, cocktails_id):
+def LikeView(request, cocktails_id, next_page):
     if request.user.is_authenticated:
         cocktails = get_object_or_404(Cocktail, id=cocktails_id)
 
@@ -41,7 +41,7 @@ def LikeView(request, cocktails_id):
             cocktails.like.add(request.user) 
             cocktails.like_count += 1
             cocktails.save()   
-        return redirect('cocktail:main')
+        return redirect(f'cocktail:{next_page}')
     return redirect('accounts:login') 
 
 def myprofile(request,user_id):  

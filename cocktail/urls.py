@@ -10,6 +10,6 @@ urlpatterns = [
     path('kocktail', views.KListView, name='kocktail'),
     path('combination2', views.Combination2View, name="combination2"),
     path('test', views.TestView, name='test'),
-    path('like/<int:cocktails_id>', views.LikeView, name="likes"),
+    path('like/<int:cocktails_id>?next=<str:next_page>', views.LikeView, name="likes"),
     path('myprofile/<int:user_id>', views.myprofile, name='profile'),
 ]
