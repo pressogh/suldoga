@@ -5,12 +5,11 @@ from .models import Post
 class PostUploadForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'user', 'content']
-        
+        fields = ['title', 'content','user']
 
         widgets = {
             "username": forms.TextInput(attrs={
-                'placeholder': '제목',
+                'placeholder': 'title',
                 'name': 'title'
             }),
             "password": forms.Textarea(attrs={
