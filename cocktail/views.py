@@ -4,7 +4,8 @@ from accounts.models import User
 
 
 def MainView(request):
-    return render(request, 'cocktail/main.html')
+    cocktail = Cocktail.objects.all()
+    return render(request, 'cocktail/main.html', {"cocktail": cocktail})
 
 
 def InfoView(request):
@@ -26,16 +27,16 @@ def TestView(request):
 
 
 def LikeView(request, cocktails_id):
-    like_b = get_object_or_404(Cocktail, id=cocktails_id)
-    if request.user in like_b.like.all():
-        like_b.like.remove(request.user)
-        like_b.like_count -= 1
-        like_b.save()
-    else:
-        like_b.like.add(request.user)
-        like_b.like_count += 1
-        like_b.save()
-    return redirect('cocktail/main.html' + str(cocktails_id))
+    if request.user.is_authenticated:
+        cocktails = get_object_or_404(Cocktail, id=cocktails_id)
+        context={"cocktails":cocktails}
+
+        if cocktails.like.filter(id=request.user.id).exists():
+            cocktails.like.remove(request.user)
+        else:
+            cocktails.like.add(request.user)    
+        return redirect('cocktail:main'), render(request, context)
+    return redirect('accounts:login') 
 
 def myprofile(request,user_id):  
     user = User.objects.get(id = user_id)

@@ -33,13 +33,16 @@
             top: 808px;">
             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
             <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-            <a href="{% url 'cocktail:likes' cocktail.id %}">
-                {% if user in cocktail.like.all %}
-                취소
-                {% else %}
-                좋아요
-                {% endif %}
-            </a>
+            <form action="{% url 'cocktail:likes' cocktail.0.id %}" method='POST'>
+                {% csrf_token %}
+                {% if user in article.like_users.all %}
+                <input type="submit" value='좋아요 취소'>
+              {% else %}
+                <input type="submit" value='좋아요'>
+              {% endif %}
+            </form>
+           
+            
 
             <section class="titleKr">
               <p>블랙러시안</p>
