@@ -5,7 +5,7 @@ from .models import Post
 class PostUploadForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content','user']
+        fields = ['title', 'content']
 
         widgets = {
             "username": forms.TextInput(attrs={

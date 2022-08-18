@@ -13,7 +13,9 @@ def PostCreateView(request):
     if request.method == 'POST':
         form = PostUploadForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
             return redirect('board:board')
     else:
         form = PostUploadForm()
