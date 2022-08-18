@@ -1,4 +1,6 @@
-{% for cocktail in cocktail_likes  %}
-<a href="{%url 'read' cocktail.id%}">{{cocktail.name}}</p>
-<p>{{cocktail.image}}</p>
+{% load static %}
+
+<p>내가 좋아요 누른 글</p>
+{% for cocktail in cocktails  %}
+<p>{{cocktail.name}}</p>
 {% endfor %} 

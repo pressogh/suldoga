@@ -11,5 +11,5 @@ urlpatterns = [
     path('combination2', views.Combination2View, name="combination2"),
     path('test', views.TestView, name='test'),
     path('like/<int:cocktails_id>', views.LikeView, name="likes"),
-    path('myprofile', views.myprofile, name='profile'),
+    path('myprofile/<int:user_id>', views.myprofile, name='profile'),
 ]

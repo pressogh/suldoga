@@ -32,19 +32,18 @@ def TestView(request):
 def LikeView(request, cocktails_id):
     if request.user.is_authenticated:
         cocktails = get_object_or_404(Cocktail, id=cocktails_id)
-        context={"cocktails":cocktails}
 
         if cocktails.like.filter(id=request.user.id).exists():
             cocktails.like.remove(request.user)
         else:
             cocktails.like.add(request.user)    
-        return redirect('cocktail:main'), render(request, context)
+        return redirect('cocktail:main')
     return redirect('accounts:login') 
 
 def myprofile(request,user_id):  
     user = User.objects.get(id = user_id)
-    cocktail_likes = user.likes.all()
+    cocktails = user.like.all()
     context={
-        "cocktail_likes":cocktail_likes,
+        "cocktails":cocktails
     }
-    return render(request, 'myprofile.html',context)
+    return render(request, 'cocktail/myprofile.html',context)

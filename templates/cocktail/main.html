@@ -39,7 +39,13 @@
           <img class="modal-custom-button" href="#myModal1" src="{% static 'cocktail/images/alcohol/br.png' %}"/>
       </button>
 
-      <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+      <form action="{% url 'cocktail:likes' cocktail.0.id %}" >
+        {% csrf_token %}
+        {% if user in cocktails.like.all %}
+            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+        {% else %}
+            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+        {% endif %}
 
       <section class="titleKr">
           <p>블랙러시안</p>
@@ -106,8 +112,14 @@
       <button class="modal-custom-button" href="#myModal2">
           <img class="modal-custom-button" href="#myModal2" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
       </button>
-      <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
-
+      <form action="{% url 'cocktail:likes' cocktail.0.id %}" >
+        {% csrf_token %}
+        {% if request.user in cocktails.like.all %}
+            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+        {% else %}
+            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+        {% endif %}
+        </form>    
       <section class="titleKr">
           <p>잭콕</p>
       </section>
@@ -172,7 +184,13 @@
     <img class="modal-custom-button" href="#myModal3" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
 </button>
 
-<img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+<form action="{% url 'cocktail:likes' cocktail.0.id %}" >
+    {% csrf_token %}
+    {% if request.user in cocktails.like.all %}
+        <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+    {% else %}
+        <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+    {% endif %}
 <section class="titleKr">
     <p>데킬라 선라이즈</p>
 </section>
@@ -661,6 +679,7 @@
                 </a>
                     <p class="baseText" style="left: 1003px">브랜디</p>
             </div>
+            
         </section>
     </div>
 {% endblock %}
