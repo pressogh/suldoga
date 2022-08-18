@@ -1,3 +1,5 @@
+import re
+from tkinter.messagebox import RETRY
 from django.shortcuts import render
 from .models import Cocktail
 
@@ -22,6 +24,8 @@ def KListView(request):
 def Combination2View(request):
     return render(request, 'cocktail/combination2.html') 
 
+def CombinationFinView(request):
+    return render(request, 'cocktail/combinationFin.html') 
 
 def TestView(request):
     return render(request, 'cocktail/test.html')
