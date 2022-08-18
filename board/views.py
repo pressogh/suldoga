@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostUploadForm
 
@@ -13,8 +13,10 @@ def PostCreateView(request):
     if request.method == 'POST':
         form = PostUploadForm(request.POST)
         if form.is_valid():
-             form.save()
-             return redirect('board:board')
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('board:board')
     else:
         form = PostUploadForm()
     context = {'form': form}

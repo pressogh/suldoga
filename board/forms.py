@@ -9,7 +9,7 @@ class PostUploadForm(forms.ModelForm):
 
         widgets = {
             "username": forms.TextInput(attrs={
-                'placeholder': '제목',
+                'placeholder': 'title',
                 'name': 'title'
             }),
             "password": forms.Textarea(attrs={

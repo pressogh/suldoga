@@ -1,0 +1,85 @@
+/* 폰트 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://rsms.me/inter/inter.css');
+
+.uploadArea{
+    position: absolute;
+    width: 1180px;
+    height: 350px;
+    left: 370px;
+    top: 320px;
+    background: #F0F0F0;
+    border-radius: 8px;
+}
+
+/* 업로드 버튼 Div */
+.uploadBtn{
+    position: relative;
+    background: #040A04;
+    width: 261px;
+    height: 72px;
+    left: 40%;
+    top: 400px;
+    text-align: center;
+ 
+}
+
+/* 업로드 버튼 text */
+.aText{
+    color: white;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 28px;
+    line-height: 250%;
+}
+
+.inputText{
+    color: white;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 28px;
+    line-height: 250%;
+    background-color:black;
+    width: 100%;
+    overflow: visible;
+    cursor: pointer;
+}
+
+/* 업로드 텍스트 */
+.uploadText{
+    /* 정중앙 하는 법 */
+    position: absolute;
+    left: 50%;top: 50%;
+    transform: translate(-50%,-50%);
+     /* 정중앙 하는 법 */
+    top: 118px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+/* 이전 버튼 */
+.preText{
+    position: absolute;
+    left: 21%;top: 15.5%;
+    transform: translate(-50%,-50%);
+    color: #ADADAD;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* 첨부 파일 */
+.uploadFile{
+    position: absolute;
+    width: 1180px;
+    height: 203px;
+    left: 370px;
+    top: 720px;
+    background: #F0F0F0;
+    border-radius: 8px;
+}

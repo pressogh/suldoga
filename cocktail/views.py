@@ -20,6 +20,9 @@ def KListView(request):
     kocktail = Cocktail.objects.filter(type="K")
     return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
 
+def Combination2View(request):
+    return render(request, 'cocktail/combination2.html') 
+
 
 def TestView(request):
     return render(request, 'cocktail/test.html')
