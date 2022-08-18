@@ -11,4 +11,6 @@ urlpatterns = [
     path('combination2', views.Combination2View, name="combination2"),
     path('combinationFin', views.CombinationFinView, name="combinationFin"),
     path('test', views.TestView, name='test'),
+    path('like/<int:cocktails_id>?next=<str:next_page>', views.LikeView, name="likes"),
+    path('myprofile/<int:user_id>', views.myprofile, name='profile'),
 ]
