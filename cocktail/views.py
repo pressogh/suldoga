@@ -35,8 +35,12 @@ def LikeView(request, cocktails_id):
 
         if cocktails.like.filter(id=request.user.id).exists():
             cocktails.like.remove(request.user)
+            cocktails.like_count -= 1
+            cocktails.save()
         else:
-            cocktails.like.add(request.user)    
+            cocktails.like.add(request.user) 
+            cocktails.like_count += 1
+            cocktails.save()   
         return redirect('cocktail:main')
     return redirect('accounts:login') 
 

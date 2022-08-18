@@ -13,6 +13,8 @@ class Cocktail(models.Model):
     match_food = models.CharField(max_length=20)
     type = models.CharField(max_length=1, choices=(('C', 'Cocktail'), ('K', 'K-ocktail')))
     like = models.ManyToManyField(User, related_name='like', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
+
 
 
     def __str__(self):
