@@ -13,7 +13,8 @@ def InfoView(request):
 
 
 def ListView(request):
-    cocktail = Cocktail.objects.filter(type="C")    # 테이블의 객체 불러와서 저장
+    cocktail = Cocktail.objects.filter(type="C")
+    cocktail = Cocktail.objects.all()
     return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail})
 
 
@@ -43,6 +44,7 @@ def LikeView(request, cocktails_id, next_page):
             cocktails.save()   
         return redirect(f'cocktail:{next_page}')
     return redirect('accounts:login') 
+
 
 def myprofile(request,user_id):  
     user = User.objects.get(id = user_id)

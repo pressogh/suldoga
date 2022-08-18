@@ -47,7 +47,7 @@
                         {% else %}
                             <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
                         {% endif %}
-
+                    </form>
                         <section class="titleKr">
                             <p>블랙러시안</p>
                         </section>
@@ -61,7 +61,7 @@
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <span class="close-modal">×</span>
+                                    <span class="close-modal"></span>
                                     <br><br>
                                     <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}" alt="">
 
@@ -113,12 +113,14 @@
                     <button class="modal-custom-button" href="#myModal2">
                         <img class="modal-custom-button" href="#myModal2" src="{% static 'cocktail/images/alcohol/jc.png' %}"/>
                     </button>
-                    <form action="{% url 'cocktail:likes' cocktail.0.id "main" %}" >
+
+                    <form action="{% url 'cocktail:likes' cocktail.17.id "main" %}" >
+
                         {% csrf_token %}
-                        {% if request.user in cocktails.like.all %}
-                            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                        {% if user in cocktail.17.like.all %}
+                            <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
                         {% else %}
-                            <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                            <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
                         {% endif %}
                     </form>
                     <section class="titleKr">
@@ -133,7 +135,7 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <span class="close-modal">×</span>
+                                <span class="close-modal"></span>
                                 <br><br>
                                 <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}" alt="">
 
@@ -186,13 +188,15 @@
                     <img class="modal-custom-button" href="#myModal3" src="{% static 'cocktail/images/alcohol/ts.png' %}"/>
                 </button>
 
-                <form action="{% url 'cocktail:likes' cocktail.0.id "main" %}" >
+                <form action="{% url 'cocktail:likes' cocktail.18.id "main"%}" >
+
                     {% csrf_token %}
-                    {% if request.user in cocktails.like.all %}
-                        <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% if user in cocktail.18.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
                     {% else %}
-                        <input type="image" img class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
                     {% endif %}
+                </form>    
                     <section class="titleKr">
                         <p>데킬라 선라이즈</p>
                     </section>
@@ -206,7 +210,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="close-modal">×</span>
+                        <span class="close-modal"></span>
                         <br><br>
                         <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}" alt="">
 
@@ -258,7 +262,14 @@
                     <img class="modal-custom-button" href="#myModal4" src="{% static 'cocktail/images/alcohol/sd.png' %}"/>
                 </button>
 
-                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <form action="{% url 'cocktail:likes' cocktail.19.id "main"%}" >
+                    {% csrf_token %}
+                    {% if user in cocktail.19.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
                 <section class="titleKr">
                     <p>스크류 드라이버</p>
                 </section>
@@ -271,7 +282,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal">×</span>
+                            <span class="close-modal"></span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}" alt="">
 
@@ -324,7 +335,14 @@
                     <img class="modal-custom-button" href="#myModal5" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
                 </button>
 
-                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <form action="{% url 'cocktail:likes' cocktail.20.id "main" %}" >
+                    {% csrf_token %}
+                    {% if user in cocktail.20.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
                 <section class="titleKr">
                     <p>보드카 크랜베리</p>
                 </section>
@@ -338,7 +356,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="close-modal">×</span>
+                        <span class="close-modal"></span>
                         <br><br>
                         <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}" alt="">
 
@@ -390,7 +408,14 @@
                     <img class="modal-custom-button" href="#myModal6" src="{% static 'cocktail/images/alcohol/km.png' %}"/>
                 </button>
 
-                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <form action="{% url 'cocktail:likes' cocktail.21.id "main" %}" >
+                    {% csrf_token %}
+                    {% if user in cocktail.21.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
                 <section class="titleKr">
                     <p>깔루아 밀크</p>
                 </section>
@@ -404,7 +429,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal">×</span>
+                            <span class="close-modal"></span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}" alt="">
 
@@ -457,7 +482,14 @@
                     <img class="modal-custom-button" href="#myModal7" src="{% static 'cocktail/images/alcohol/gt.png' %}"/>
                 </button>
 
-                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <form action="{% url 'cocktail:likes' cocktail.22.id "main" %}" >
+                    {% csrf_token %}
+                    {% if user in cocktail.22.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
                 <section class="titleKr">
                     <p>진 토닉</p>
                 </section>
@@ -470,7 +502,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal">×</span>
+                            <span class="close-modal"></span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}" alt="">
 
@@ -524,7 +556,14 @@
                 <button class="modal-custom-button" href="#myModal8">
                     <img class="modal-custom-button" href="#myModal8" src="{% static 'cocktail/images/alcohol/mg.png' %}"/>
                 </button>
-                <img onclick="changeLike()" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" />
+                <form action="{% url 'cocktail:likes' cocktail.23.id "main"%}" >
+                    {% csrf_token %}
+                    {% if user in cocktail.23.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
                 <section class="titleKr">
                     <p>마가리타</p>
                 </section>
