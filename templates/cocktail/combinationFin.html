@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'cocktail/info/style.css' %}" />
+
+<div class="fin-page">
+  <img
+    class="content-img"
+    src="{% static 'cocktail/images/logo_skeleton.png' %}"
+  />
+
+  <h1 class="title">당신의 레시피를 등록했습니다!</h1>
+
+  <div class="overlap-group2-fin">
+    <a href="/">
+      <div class="text-20-1">홈으로 가기</div>
+    </a>
+  </div>
+
+  <div class="overlap-group3-fin">
+    <a href="/test.html">
+      <div class="text-20-2">나의 술장으로 가기</div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}
