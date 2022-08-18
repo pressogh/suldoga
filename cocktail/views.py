@@ -13,17 +13,21 @@ def InfoView(request):
 
 
 def ListView(request):
-    cocktail = Cocktail.objects.filter(type="C")
-    cocktail = Cocktail.objects.all()
+    cocktail = Cocktail.objects.all()    # 테이블의 객체 불러와서 저장
     return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail})
 
 
 def KListView(request):
-    kocktail = Cocktail.objects.filter(type="K")
-    return render(request, 'cocktail/kocktail.html', {"kocktail":kocktail})
+    kocktail = Cocktail.objects.all()
+    return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
+
 
 def Combination2View(request):
     return render(request, 'cocktail/combination2.html') 
+
+
+def CombinationFinView(request):
+    return render(request, 'cocktail/combinationFin.html') 
 
 
 def TestView(request):
@@ -39,17 +43,19 @@ def LikeView(request, cocktails_id, next_page):
             cocktails.like_count -= 1
             cocktails.save()
         else:
-            cocktails.like.add(request.user) 
+            cocktails.like.add(request.user)
             cocktails.like_count += 1
-            cocktails.save()   
+            cocktails.save()
         return redirect(f'cocktail:{next_page}')
-    return redirect('accounts:login') 
+
+    else:
+        return redirect('accounts:login')
 
 
-def myprofile(request,user_id):  
-    user = User.objects.get(id = user_id)
+def myprofile(request, user_id):
+    user = User.objects.get(id=user_id)
     cocktails = user.like.all()
     context={
-        "cocktails":cocktails
+        "cocktails": cocktails
     }
     return render(request, 'cocktail/myprofile.html',context)
