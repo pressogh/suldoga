@@ -10,6 +10,7 @@ def ListView(request):
     context = {'board_list': board_list}
     return render(request, 'board/board.html', context)
 
+
 @login_required
 def PostCreateView(request):
     if request.method == 'POST':
@@ -24,15 +25,17 @@ def PostCreateView(request):
     context = {'form': form}
     return render(request, 'board/regist.html', context)
 
+
 @login_required
 def DetailView(request, post_id):
     board_list = get_object_or_404(Post, id=post_id)
     context = {'board_list': board_list}
     return render(request, 'board/detail.html', context)
 
+
 def UpdateView(request, post_id):
     board_list = Post.objects.get(id=post_id)
-    
+
     if request.method == "POST":
         form = PostUpdateForm(request.POST)
         if form.is_valid():
@@ -40,10 +43,11 @@ def UpdateView(request, post_id):
             board_list.content = request.POST['content']
             board_list.created_at = timezone.now()
             board_list.save()
-            return redirect('board/detail/'+ str(board_list.id))
+            return redirect('board/detail/' + str(board_list.id))
     else:
-        form = PostUpdateForm(instance = Post)
-        return render(request, 'board/update.html', {'form':form})
+        form = PostUpdateForm(instance=board_list)
+        return render(request, 'board/update.html', {'form': form})
+
 
 def DeleteView(request, post_id):
     board_list = Post.objects.get(id=post_id)
