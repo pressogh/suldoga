@@ -15,4 +15,12 @@ urlpatterns = [
     path('test', views.TestView, name='test'),
     path('like/<int:cocktails_id>?next=<str:next_page>', views.LikeView, name="likes"),
     path('myprofile/<int:user_id>', views.myprofile, name='profile'),
+    path('wisky',views.base_wisky, name="wisky"),
+    path('jin',views.base_jin, name="jin"),
+    path('tequila',views.base_tequila, name="tequila"),
+    path('vodka',views.base_vodka, name="vodka"),
+    path('liqueur',views.base_liqueur, name="liqueur"),
+    path('rum',views.base_rum, name="rum"),
+    path('brandy',views.base_brandy, name="brandy"),
+
 ]

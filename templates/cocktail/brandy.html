@@ -1,81 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../cocktail/static/cocktail/info/style.css">
-</head>
-<body>
-    <div class="info-page screen">
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'cocktail/info/style.css' %}">
+    <div class="info-page screen" style="margin: 0px auto;">
         <div class="overlap-group1">
-        <div class="flex-row">
-            <a href="/test.html">
-                <img class="logo" src="../../cocktail/static/cocktail/images/logo.svg" />
-            </a>
-            <div class="navbar">
-                <a href="/test.html">
-                    <div class="navbar-link-text-1 pretendard-medium-silver-chalice-18px"> 칵테일정보</div>
-                </a>
-                <a href="/test.html">
-                    <div class="navbar-link-cocktail pretendard-medium-silver-chalice-18px">Cocktail</div>
-                </a>
-                <a href="/test.html">
-                    <div class="navbar-link-k-ocktail pretendard-medium-silver-chalice-18px">K-ocktail</div>
-                </a>
-                <a href="/test.html">
-                    <div class="navbar-link-text-2 pretendard-medium-silver-chalice-18px"> 술 조합 추천 </div>
-                </a>
-                <a href="/test.html">
-                    <div class="navbar-link-text-3 pretendard-medium-silver-chalice-18px">술 문화 공유</div>
-                </a>
-            </div>
-            <a href="/test.html">
-            <div class="login">LOGIN</div>
-            </a>
-            <a href="/test.html">
-            <img class="icon_H" src="../../cocktail/static/cocktail/images/icon_H.svg" />
-            </a>
-            <a href="/test.html">
-            <img class="ellipse-1" src="../../cocktail/static/cocktail/images/ellipse-1.png" />
-            </a>
-        </div>
+      
         <div class="rectangle-34"></div>
         </div>
         <h1 class="title">Cocktail</h1>
         <p class="text-19">여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
-        <img class="line-10" src="../../cocktail/static/cocktail/images/line-10.svg" />
+        <img class="line-10" src="{% static 'cocktail/images/line-10.svg' %}" />
         <div class="text-4 pretendard-medium-licorice-28px">쉽게 알아보는 베이스 종류</div>
         <div class="text-12">클릭하면 해당 베이스 술에 대해서 더 설명해드릴게요 </div>
         <div class="overlap-group">
-            <img class="B_wsky" id="img_BW" src="../../cocktail/static/cocktail/images/B_wsky.jpg" />
-            <img class="B_jin" id="img_BJ" src="../../cocktail/static/cocktail/images/B_jin.jpg" />
-            <img class="B_tql" id="img_BT" src="../../cocktail/static/cocktail/images/B_tql.jpg" />
-            <img class="B_vdk" id="img_BV" src="../../cocktail/static/cocktail/images/B_vdk.jpg" />
-            <img class="B_lqr" id="img_BL" src="../../cocktail/static/cocktail/images/B_lqr.jpg" />
-            <img class="B_rum" id="img_BR" src="../../cocktail/static/cocktail/images/B_rum.jpg" />
-            <img class="B_brdy" id="img_BB" src="../../cocktail/static/cocktail/images/B_brdy.jpg" />
+            <img class="B_wsky" id="img_BW" src="{% static 'cocktail/images/B_wsky.jpg' %}" />
+            <img class="B_jin" id="img_BJ" src="{% static 'cocktail/images/B_jin.jpg' %}" />
+            <img class="B_tql" id="img_BT" src="{% static 'cocktail/images/B_tql.jpg' %}" />
+            <img class="B_vdk" id="img_BV" src="{% static 'cocktail/images/B_vdk.jpg' %}" />
+            <img class="B_lqr" id="img_BL" src="{% static 'cocktail/images/B_lqr.jpg' %}" />
+            <img class="B_rum" id="img_BR" src="{% static 'cocktail/images/B_rum.jpg' %}" />
+            <img class="B_brdy" id="img_BB" src="{% static 'cocktail/images/B_brdy.jpg' %}" />
             <a href="/wisky.html">
-            <img class="A_wsky" id="img_AW" src="../../cocktail/static/cocktail/images/A_wsky.jpg" />
+            <img class="A_wsky" id="img_AW" src="{% static 'cocktail/images/A_wsky.jpg' %}" />
             </a>
             <a href="/jin.html">
-            <img class="A_jin" id="img_AJ" src="../../cocktail/static/cocktail/images/A_jin.jpg" />
+            <img class="A_jin" id="img_AJ" src="{% static 'cocktail/images/A_jin.jpg' %}" />
             </a>
             <a href="/tequila.html"k>
-            <img class="A_tql" id="img_AT" src="../../cocktail/static/cocktail/images/A_tql.jpg" />
+            <img class="A_tql" id="img_AT" src="{% static 'cocktail/images/A_tql.jpg' %}" />
             </a>
             <a href="/vodka.html">
-            <img class="A_vdk" id="img_AV" src="../../cocktail/static/cocktail/images/A_vdk.jpg" />
+            <img class="A_vdk" id="img_AV" src="{% static 'cocktail/images/A_vdk.jpg' %}" />
             </a>
             <a href="/liqueur.html">
-            <img class="A_lqr" id="img_AL" src="../../cocktail/static/cocktail/images/A_lqr.jpg" />
+            <img class="A_lqr" id="img_AL" src="{% static 'cocktail/images/A_lqr.jpg' %}" />
             </a>
             <a href="/rum.html">
-            <img class="A_rum" id="img_AR" src="../../cocktail/static/cocktail/images/A_rum.jpg" />
+            <img class="A_rum" id="img_AR" src="{% static 'cocktail/images/A_rum.jpg' %}" />
             </a>
             <a href="/brandy.html">
-            <img class="A_brdy" id="img_AB" src="../../cocktail/static/cocktail/images/A_brdy.jpg" />
+            <img class="A_brdy" id="img_AB" src="{% static 'cocktail/images/A_brdy.jpg' %}" />
             </a>
             <div class="rectangle-stand"></div>
             <div class="text-wsky pretendard-medium-silver-chalice-20px">위스키</div>
@@ -90,7 +59,7 @@
         <div class="place">Brandy</div>
         <div class="content-group">
             <div>
-                <img class="content-img" src="../../cocktail/static/cocktail/images/glass.jpg" />
+                <img class="content-img" src="{% static 'cocktail/images/glass.jpg' %}" />
             </div>
             <div class="content-text">
                 <div class="lorem-ipsum-dolor-si pretendard-medium-black-18px">
@@ -112,9 +81,9 @@
             </div>
         <div class="text-5 pretendard-medium-licorice-28px">추천 칵테일</div>
         <div class="flex-row-1">
-            <img class="recommend_A" src="../../cocktail/static/cocktail/images/recommend_A.png" />
-            <img class="recommend_B" src="../../cocktail/static/cocktail/images/recommend_B.png" />
-            <img class="recommend_C" src="../../cocktail/static/cocktail/images/recommend_C.png" />
+            <img class="recommend_A" src="{% static 'cocktail/images/recommend_A.png' %}" />
+            <img class="recommend_B" src="{% static 'cocktail/images/recommend_B.png' %}" />
+            <img class="recommend_C" src="{% static 'cocktail/images/recommend_C.png' %}" />
         </div>
         <div class="text-container">
         <div class="text-10 pretendard-medium-licorice-20px">추천1</div>
@@ -124,22 +93,7 @@
         <div class="overlap-group2">
             <a href="/test.html">
                 <div class="text-20">칵테일 제조하러 가보기!</div>
-            </a>        </div>
-        <div class="text-6 pretendard-medium-licorice-28px"> 더 추가할 내용?</div>
-        <div class="logo-container">
-            <div class="x04-_-logo">
-                <div class="univ_final-1">
-                    <img class="lion_logo" src="../../cocktail/static/cocktail/images/lion_logo.svg" /><img class="likelion" src="../../cocktail/static/cocktail/images/likelion.svg" />
-                </div>
-                <img class="x_icon" src="../../cocktail/static/cocktail/images/x_icon.svg" />
-            </div>
-            <div class="logo-1">
-                <div class="name-here">HANSUNG</div>
-                <div class="univ">
-                    <div class="margin"></div>
-                    <img class="univ" src="../../cocktail/static/cocktail/images/univ.svg" />
-                </div>
-            </div>
+            </a>        
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -275,6 +229,5 @@
                             $("#img_BR").show();
                         });
                     });
-            </script>	
-</body>
-</html>
+            </script>   
+{% endblock %}
