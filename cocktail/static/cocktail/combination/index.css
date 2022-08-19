@@ -101,6 +101,19 @@ td > p {
   color: #000000;
 }
 
+.ingredientTitle-detail{
+  margin-top: 90px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 48px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
 /* 음료 리스트 */
 .ingredient-list {
   box-sizing: border-box;

@@ -1,0 +1,215 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'cocktail/combination/index.css' %}"
+/>
+<!-- <script src="{% static 'cocktail/main/index.js' %}"></script> -->
+
+<div class="wrapper">
+  <!-- 타이틀 -->
+  <p class="title">당신만의 다채로운 술 조합을 추천해주세요!</p>
+  <div id="progress-image-container">
+    <img
+      id="progress-image"
+      src="{% static 'cocktail/images/step2_progress.png' %}"
+    />
+  </div>
+
+  <!-- 검색창 -->
+  <section>
+    <div id="searchBar-wrapper">
+      <input
+        class="searchBar"
+        type="search-text"
+        placeholder="찾고자 하는 베이스를 검색해주세요.&nbsp;&nbsp;&nbsp;"
+        onfocus="this.placeholder=''"
+        onblur="this.placeholder='찾고자 하는 베이스를 검색해주세요.&nbsp;&nbsp;&nbsp;'"
+      />
+    </div>
+  </section>
+
+  <!-- 음료 고르기 -->
+  <section id="ingredient-container">
+    <div class="ingredient">
+      <p class="ingredientTitle">Cocktail Base</p>
+      <div class="ingredient-list">
+        <table>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/tonic_water.jpeg' %}"
+              />
+              <p>진</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+              />
+              <p>위스키</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cidar.jpeg' %}"
+              />
+              <p>브랜디</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cola.jpeg' %}"
+              />
+              <p>보드카</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/milk.jpeg' %}"
+              />
+              <p>리큐르</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/orange_juice.webp' %}"
+              />
+              <p>데킬라</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/jamong_juice.jpeg' %}"
+              />
+              <p>럼</p>
+            </td>
+            </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Brand 추가 선택하기 -->
+    <div class="ingredient">
+        <p class="ingredientTitle-detail">Brand (추가선택)</p>
+        <div class="ingredient-list">
+          <table>
+            <tr>
+              <td>
+                <img
+                  onClick="selectItem(this);"
+                  src="{% static 'cocktail/images/ingredient/tonic_water.jpeg' %}"
+                />
+                <p>선택안함</p>
+              </td>
+              <td>
+                <img
+                  onClick="selectItem(this);"
+                  src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+                />
+                <p>붐베이 사파이어</p>
+              </td>
+              <td>
+                <img
+                  onClick="selectItem(this);"
+                  src="{% static 'cocktail/images/ingredient/cidar.jpeg' %}"
+                />
+                <p>핸드릭스</p>
+              </td>
+              <td>
+                <img
+                  onClick="selectItem(this);"
+                  src="{% static 'cocktail/images/ingredient/cola.jpeg' %}"
+                />
+                <p>스타오브 봄베이</p>
+              </td>
+              <td>
+                <img
+                  onClick="selectItem(this);"
+                  src="{% static 'cocktail/images/ingredient/milk.jpeg' %}"
+                />
+                <p>고든스</p>
+              </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+
+    <!-- 과일 고르기 -->
+    <div class="ingredient">
+      <p class="ingredientTitle">K-ocktail Base</p>
+      <div class="ingredient-list">
+        <table>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lemon_juice.jpeg' %}"
+              />
+              <p>진로</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lemon.jpeg' %}"
+              />
+              <p>참이슬</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lime_juice.jpeg' %}"
+              />
+              <p>처음처럼</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lime.jpeg' %}"
+              />
+              <p>카스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/orange.jpeg' %}"
+              />
+              <p>테라</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 다음단계로 이동하는 버튼 -->
+  <button class="next-button" type="button" onClick="location.href='#'">
+    다음단계 >
+  </button>
+
+  <p>베이스 술에 대해 더 알아보고 제조할래요</p>
+  <button class="next-button" type="button" onClick="location.href='#'">
+    설명 보러가기
+  </button>
+</div>
+
+<script>
+  var isSelected = false;
+  function selectItem(img) {
+    if (img.getAttribute("src") == "./images/placeholder.png") {
+      console.log("dma");
+      alert("선택된 항목이 없습니다.");
+      return;
+    }
+    if (isSelected == true) {
+      img.style.border = "";
+    } else {
+      img.style.border = "3px solid #000000";
+      img.style.borderRadius = "8px";
+    }
+    isSelected = !isSelected;
+  }
+</script>
+
+{% endblock %}
