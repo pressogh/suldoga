@@ -6,6 +6,7 @@
 />
 
 <!-- href="./combination1.css" -->
+<!-- href="{% static 'cocktail/combination/index.css' %}" -->
 <!-- <script src="{% static 'cocktail/main/index.js' %}"></script> -->
 
 <div class="wrapper">
@@ -148,6 +149,7 @@
               <img
                 onClick="selectItem(this);"
                 src="{% static 'cocktail/images/ingredient/kbase_jinro.jpeg' %}"
+                value="진로"
               />
               <p>진로</p>
             </td>
@@ -183,7 +185,12 @@
         </table>
       </div>
     </div>
-  </section>
+  </section>  
+
+  <div id="selected">
+    <div class="selected-text">선택된 항목( <span id="count"></span>개)</div>
+    <div id="selected-list"></div>
+  </div>
 
   <!-- 다음단계로 이동하는 버튼 -->
   <button class="next-button" type="button" onClick="location.href='combination2.html'">
@@ -199,6 +206,7 @@
 
 <script>
   var isSelected = false;
+  var count=0;
   function selectItem(img) {
     if (img.getAttribute("src") == "./images/placeholder.png") {
       console.log("dma");
@@ -210,6 +218,10 @@
     } else {
       img.style.border = "3px solid #000000";
       img.style.borderRadius = "8px";
+      count++;
+      console.log(img.value);
+      document.getElementById("selected-list").innerHTML+= ' <span class="selected-item">value</span> '
+      document.getElementById("count").value = count;
     }
     isSelected = !isSelected;
   }
