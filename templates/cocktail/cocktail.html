@@ -38,7 +38,7 @@
                 </div>
 
                 <!-- 정렬폼 -->
-                <form action="" method="post">
+                <form action="{% url 'cocktail:cocktail' %}" method="get">
                     {% csrf_token %}
                     <!-- 정렬 모달창 -->
                     <div id="modal-container">
@@ -60,6 +60,7 @@
                                 <span>높은도수</span>
                             </label>
                         </div>
+                        <input type="submit" value="적용">
                     </div>
                 </form>
             </div>
