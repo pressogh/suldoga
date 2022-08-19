@@ -3,8 +3,9 @@
 
 {% block content %}
 
-<div style="margin-top: 7%; text-align: center;">
+<div style="margin-top: 7%; text-align: center; border: 3px solid">
 <p style="font-size: 30px; font-weight: 500;">좋아요 누른 칵테일</p>
+<hr style="color: #D9D9D;">
 {% for cocktail in cocktails  %}
 <p style="font-size: 22px; font-weight: 700;">{{cocktail.name}}</p>
 {% endfor %} 
