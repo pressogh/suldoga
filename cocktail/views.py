@@ -7,13 +7,29 @@ def MainView(request):
     cocktail = Cocktail.objects.all()
     return render(request, 'cocktail/main.html', {"cocktail": cocktail})
 
-
 def InfoView(request):
     return render(request, 'cocktail/info.html')
 
 def base_wisky(request):
     return render(request, 'cocktail/wisky.html')
 
+def base_jin(request):
+    return render(request, 'cocktail/jin.html')
+
+def base_tequila(request):
+    return render(request, 'cocktail/tequila.html')
+
+def base_vodka(request):
+    return render(request, 'cocktail/vodka.html')
+
+def base_liqueur(request):
+    return render(request, 'cocktail/liqueur.html')
+
+def base_rum(request):
+    return render(request, 'cocktail/rum.html')
+
+def base_brandy(request):
+    return render(request, 'cocktail/brandy.html')
 
 def ListView(request):
     if request.method == "GET":

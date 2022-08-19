@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../cocktail/static/cocktail/info/style.css">
-</head>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="{% static 'cocktail/list/js/common.js' %}"></script>
+
 <body>
     <div class="info-page screen">
         <div class="overlap-group1">
         <div class="flex-row">
             <a href="/test.html">
-                <img class="logo" src="../../cocktail/static/cocktail/images/logo.svg" />
+                <img class="logo" src="{% static 'cocktail/image/logo.svg' %}" />
             </a>
             <div class="navbar">
                 <a href="/test.html">
@@ -277,5 +280,5 @@
                         });
                     });
             </script>			        		
-</body>
-</html>
+
+{% endblock %}
