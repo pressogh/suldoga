@@ -646,3 +646,25 @@
 ion-icon {
   padding-top: 0.05rem;
 }
+
+.pre-btn{
+    width: 40px;
+    height: 40px;
+    margin-right: -100;
+    margin-bottom: 125px;
+}
+
+.next-btn{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 125px;
+
+}
+
+.flex-row-1 {
+    align-items: flex-end; 
+    display: flex; 
+    margin-left: 0px; 
+    margin-top: 1px;
+    min-width: 935px;
+}
