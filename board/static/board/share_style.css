@@ -422,7 +422,7 @@
 .best-1 { 
     height: 291px; 
     width: 380px;
-    margin-left: 80px; 
+    margin-left: 10px; 
 }
 
 .best-2 { 
@@ -435,6 +435,7 @@
     height: 291px; 
     width: 380px;
     margin-left: 20px;
+    margin-right: 10px;
 
 }
 
