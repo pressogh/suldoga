@@ -1,0 +1,393 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://rsms.me/inter/inter.css");
+
+/* panel */
+.panel {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 83px;
+  background-color: #0a0603;
+}
+.panel > img {
+  width: 100%;
+}
+.panelText {
+  position: absolute;
+  width: 558px;
+  height: 120px;
+  left: 992px;
+  top: 80px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 60%;
+  text-align: right;
+  color: #f0f0f0;
+}
+/* 칵테일 div area */
+.cocktailArea {
+  width: min(100% - 2rem, 1800px);
+  margin-inline: auto;
+  height: 100%;
+}
+
+/* 칵테일 제조 버튼 */
+.produceBtn {
+  box-sizing: border-box;
+  position: absolute;
+  width: 280px;
+  height: 73px;
+  left: 1270px;
+  top: 330px;
+  background-color: #0a0603;
+  border: 2px solid #d7d7d7;
+  color: #d7d7d7;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 65px;
+}
+
+/* 검색 바 */
+.searchBar {
+  box-sizing: border-box;
+  position: absolute;
+  width: 780px;
+  height: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 664px;
+  border: 1px solid #adadad;
+  border-radius: 40px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
+
+/* 칵테일 div area */
+.cocktailDiv {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+  height: 100%;
+}
+
+/* 칵테일 Card View */
+.cardBox {
+  float: left;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 75px;
+}
+
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0px auto;
+}
+
+.titleKr {
+  text-align: center;
+  z-index: 2;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+}
+.titleEng {
+  text-align: center;
+  z-index: 2;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  color: #6f6f6f;
+  margin-top: -15px;
+}
+
+/* 더 알아보기 버튼 */
+.contentsBtn {
+  position: absolute;
+  width: 328px;
+  height: 80px;
+  left: 50%;
+  top: 1647px;
+  background-color: #040a04;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 80px;
+  transform: translateX(-50%);
+}
+
+/* hr line */
+.hrLine {
+  position: absolute;
+  width: 1440px;
+  height: 0px;
+  left: 50%;
+  top: 1818px;
+  transform: translateX(-50%);
+  border: 1px solid #c8c8c8;
+}
+
+/* like button */
+.likeBtn {
+  width: 32px;
+  height: 28.75px;
+  margin-top: -17.5px;
+  margin-left: 200px;
+}
+
+/* main text */
+.textTitle {
+  position: absolute;
+  width: 287px;
+  height: 42px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1030px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 150%;
+  text-align: center;
+  color: #040a04;
+}
+
+.textSmall {
+  position: absolute;
+  width: 416px;
+  height: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1060px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #adadad;
+}
+
+/* footer */
+.copyright {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  left: 0px;
+  bottom: -1520px;
+  background: #040a04;
+  text-align: center;
+}
+.copyright > img {
+  width: 40%;
+  display: block;
+  margin: auto;
+}
+
+/* 술 베이스 부분 */
+.baseList {
+  transform: translateX(-50%);
+  position: absolute;
+  width: 1180px;
+  height: 144px;
+  bottom: -1710px;
+  background: #040a04;
+  border-radius: 12px 12px 0px 0px;
+  left: 50%;
+}
+
+/* 술 베이스 이미지 */
+.baseImg {
+  z-index: -1;
+  position: absolute;
+  width: 168.22px;
+  height: 280.37px;
+  left: 50px;
+  top: -261px;
+}
+
+/* base text */
+.baseText {
+  position: absolute;
+  width: 63px;
+  height: 36px;
+  left: 100px;
+  bottom: 55px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.modal-custom {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.star-custom {
+  display: none;
+}
+.modal-custom-button {
+  padding: 5px 5px;
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
+
+  /*기존 thumbnail*/
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0px auto;
+}
+.modal-content {
+  border-radius: 15px;
+  width: 500px;
+  height: 700px;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: auto;
+  border: 1px solid #888;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+.close-modal {
+  color: gray;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  text-align: center;
+}
+.modal-img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 5px auto;
+}
+.modal-body {
+  padding: 2px 16px;
+  text-align: center;
+}
+.modal-title {
+  font-weight: bold;
+}
+.modal-footer {
+  padding: 2px 16px;
+  text-align: center;
+}
+
+.stars {
+  size: 13px;
+  text-align: center;
+}
+.star {
+  width: 45px;
+}
+
+/* 칵테일 Card View */
+.cardBox {
+  float: left;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 75px;
+}
+
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0px auto;
+}
+
+.titleKr {
+  text-align: center;
+  z-index: 2;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+}
+.titleEng {
+  text-align: center;
+  z-index: 2;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  color: #6f6f6f;
+  margin-top: -15px;
+}
+.content {
+  text-align: center;
+  z-index: 2;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: -15px;
+}
