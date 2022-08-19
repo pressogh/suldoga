@@ -90,7 +90,9 @@ WSGI_APPLICATION = 'suldoga.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = os.environ["DATABASES"]['default']
+print(os.environ["DATABASES"])
+# get database from environment variable
+DATABASES = json.loads(os.environ["DATABASES"])['default']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
