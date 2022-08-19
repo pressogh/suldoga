@@ -49,10 +49,10 @@ def ListView(request):
             cocktail_list = cocktail.order_by('-like_count')
 
         elif sort == 3: #도수 낮은 순
-            cocktail_list = cocktail.order_by('-alcohol')
+            cocktail_list = cocktail.order_by('alcohol')
 
         elif sort == 4: #도수 높은 순
-            cocktail_list = cocktail.order_by('alcohol')
+            cocktail_list = cocktail.order_by('-alcohol')
 
         print(cocktail_list)
         return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail_list, "sort": str(sort)})
@@ -70,18 +70,18 @@ def KListView(request):
         kocktail_list = kocktail
         print(sort)   
         if sort == 1: #기본
-            cocktail_list = kocktail
+            kocktail_list = kocktail
 
         elif sort == 2: #스크랩순 (하트)
-            cocktail_list = kocktail.order_by('-like_count')
+            kocktail_list = kocktail.order_by('-like_count')
 
         elif sort == 3: #도수 낮은 순
-            cocktail_list = kocktail.order_by('-alcohol')
+            kocktail_list = kocktail.order_by('alcohol')
 
         elif sort == 4: #도수 높은 순
-            cocktail_list = kocktail.order_by('alcohol')
+            kocktail_list = kocktail.order_by('-alcohol')
 
-        print(cocktail_list)
+        print(kocktail_list)
         return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail_list, "sort": str(sort)})
 
 def Combination1View(request):
