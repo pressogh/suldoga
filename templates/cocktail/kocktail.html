@@ -3,87 +3,87 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="{% static 'cocktail/list/js/common.js' %}"></script>
-    
-<section>
-    <h3>K-ocktail</h3>
-    <p>여러가지 우리나라 술과 재료를 혼합하여 만든 혼합주</p>
-    <div class="inner">
-        <div class="searching">
-            <i class="fas fa-search"></i>
-        </div>
-        <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
-            onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
-    </div>
-</section>
-<section class="chkbox">
-  <div class="contaniner">
-    <label
-      ><input type="checkbox" class="chk" name="" value="칵테일" />칵테일</label
-    >
-    <label
-      ><input type="checkbox" class="chk" name="" value="재료" />재료</label
-    >
-    <!-- 정렬버튼 -->
-    <div id="sort-container">
-      <div id="sort-toggle">
-        <img
-          id="sort-btn"
-          src="{% static 'cocktail/images/arrow_sort.png' %}"
-          alt="arrow-sort"
-        /><span id="sort-btn-text">기본</span>
-      </div>
+    <link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'cocktail/list/js/common.js' %}"></script>
 
-      <!-- 정렬폼 -->
-      <form action="" method="post">
-        {% csrf_token %}
-        <!-- 정렬 모달창 -->
-        <div id="modal-container">
-          <div id="sort-type">
-            <label for="sort-type-1">
-              <input
-                type="radio"
-                name="sort-type"
-                id="sort-type-1"
-                value="1"
-                checked
-              />
-              <span>기본</span>
-            </label>
-            <label for="sort-type-2">
-              <input type="radio" name="sort-type" id="sort-type-2" value="2" />
-              <span>별점순</span>
-            </label>
-            <label for="sort-type-3">
-              <input type="radio" name="sort-type" id="sort-type-3" value="3" />
-              <span>스크랩순</span>
-            </label>
-            <label for="sort-type-4">
-              <input type="radio" name="sort-type" id="sort-type-4" value="4" />
-              <span>도수순</span>
-            </label>
-            <label for="sort-type-5">
-              <input type="radio" name="sort-type" id="sort-type-5" value="5" />
-              <span>신상순</span>
-            </label>
-            <label for="sort-type-6">
-              <input type="radio" name="sort-type" id="sort-type-6" value="6" />
-              <span>여성인기</span>
-            </label>
-            <label for="sort-type-7">
-              <input type="radio" name="sort-type" id="sort-type-7" value="7" />
-              <span>남성인기</span>
-            </label>
-          </div>
+    <section>
+        <h3>K-ocktail</h3>
+        <p>여러가지 우리나라 술과 재료를 혼합하여 만든 혼합주</p>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+                   onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
         </div>
-      </form>
-    </div>
-  </div>
-</section>
+    </section>
+    <section class="chkbox">
+        <div class="contaniner">
+            <label
+            ><input type="checkbox" class="chk" name="" value="칵테일" />칵테일</label
+            >
+            <label
+            ><input type="checkbox" class="chk" name="" value="재료" />재료</label
+            >
+            <!-- 정렬버튼 -->
+            <div id="sort-container">
+                <div id="sort-toggle">
+                    <img
+                            id="sort-btn"
+                            src="{% static 'cocktail/images/arrow_sort.png' %}"
+                            alt="arrow-sort"
+                    /><span id="sort-btn-text">기본</span>
+                </div>
+
+                <!-- 정렬폼 -->
+                <form action="{% url 'cocktail:cocktail' %}" method="get">
+                    {% csrf_token %}
+                    <!-- 정렬 모달창 -->
+                    <div id="modal-container">
+                        <div id="sort-type">
+                            <label for="sort-type-1">
+                                {% if sort == '1' %}
+                                <input type="radio" name="sort-type" id="sort-type-1" value="1" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-1" value="1" />
+                                {% endif %}
+                                <span>기본</span>
+                            </label>
+                            <label for="sort-type-2">
+                                {% if sort == '2' %}
+                                <input type="radio" name="sort-type" id="sort-type-2" value="2" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-2" value="2" />
+                                {% endif %}
+                                <span>스크랩순</span>
+                            </label>
+                            <label for="sort-type-3">
+                                {% if sort == '3' %}
+                                <input type="radio" name="sort-type" id="sort-type-3" value="3" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-3" value="3" />
+                                {% endif %}
+                                <span>낮은도수</span>
+                            </label>
+                            <label for="sort-type-4">
+                                {% if sort == '4' %}
+                                <input type="radio" name="sort-type" id="sort-type-4" value="4" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-4" value="4" />
+                                {% endif %}
+                                <span>높은도수</span>
+                            </label>
+                        </div>
+                        <input class="submitBtn" type="submit" value="적용">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
 
 <!-- 칵테일 카드 View List -->
 <section class="coclist">
