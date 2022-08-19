@@ -21,6 +21,8 @@
                 </td>
             </tr>
         </table>
+        <a href="{% url 'board:update' board_list.id %}">수정</a>
+        <a href="{% url 'board:delete' board_list.id %}">삭제</a>
     </div>
     <div style="padding: 2px 20px; float:right;">
     </div>

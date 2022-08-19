@@ -1,0 +1,168 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'cocktail/combination/index.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'accounts/register2/index.css' %}"
+/>
+<!-- <script src="{% static 'cocktail/main/index.js' %}"></script> -->
+
+<div class="wrapper">
+  <!-- 타이틀 -->
+  <p class="title">당신만의 다채로운 술 조합을 추천해주세요!</p>
+  <div id="progress-image-container">
+    <img
+      id="progress-image"
+      src="{% static 'cocktail/images/step3_progress.png' %}"
+    />
+  </div>
+
+  <section id="result-container">
+    <section id="result-image">
+      <div id="result-alcohol">
+        <div class="result-ingredient-image">
+          <img
+            src="{% static 'cocktail/images/A_jin.jpg' %}"
+          />
+          <p>붐베이 사파이어</p>
+        </div>
+      </div>
+      <div id="add-icon">
+        <img src="{% static 'cocktail/images/ingredient/add.png' %}" />
+      </div>
+      <div id="result-ingredient">
+        <div class="result-ingredient-image">
+          <img
+            src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+          />
+          <p>토닉워터</p>
+        </div>
+        <div class="result-ingredient-image">
+          <img
+            src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+          />
+          <p>사이다</p>
+        </div>
+        <div class="result-ingredient-image">
+          <img
+            src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+          />
+          <p>레몬즙</p>
+        </div>
+      </div>
+    </section>
+    <section id="result-dsec">
+      <div class="question-title-container">
+        <span class="question-num">Q1.</span>
+        <span class="question-content"
+          >나만의 술 조합에 이름을 지어주세요.</span
+        >
+      </div>
+      <input
+      id="combination-name"
+      type="text"
+        placeholder="이름을 입력하세요."
+      >
+      </input>
+      <div>
+        <div class="question-title-container">
+          <span class="question-num">Q2.</span>
+          <span class="question-content">달콤함의 정도 이름을 입력하세요.</span>
+        </div>
+        <div class="type" id="sweet-type">
+          <label for="sweet-type-1">
+            <input type="radio" name="sweet-type" id="sweet-type-1" value="1" />
+            <p class="type-p">쓴맛</p>
+          </label>
+          <label for="sweet-type-2">
+            <input type="radio" name="sweet-type" id="sweet-type-2" value="2" />
+          </label>
+          <label for="sweet-type-2">
+            <input type="radio" name="sweet-type" id="sweet-type-2" value="3" />
+            <p class="type-p">중간</p>
+          </label>
+          <label for="sweet-type-2">
+            <input type="radio" name="sweet-type" id="sweet-type-2" value="4" />
+          </label>
+          <label for="sweet-type-2">
+            <input type="radio" name="sweet-type" id="sweet-type-2" value="5" />
+            <p class="type-p">단맛</p>
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="question-title-container">
+          <span class="question-num">Q3.</span>
+          <span class="question-content">도수의 정도 이름을 입력하세요.</span>
+        </div>
+        <div id="type-container">
+          <div id="degree-type" style="justify-content: start">
+            <label for="degree-type-1" style="">
+              <input
+                type="radio"
+                name="degree-type"
+                id="degree-type-1"
+                value="1"
+              />
+              <p class="type-p">낮음</p>
+              <p>10도 미만</p>
+            </label>
+            <label for="degree-type-2" style="">
+              <input
+                type="radio"
+                name="degree-type"
+                id="degree-type-2"
+                value="2"
+              />
+              <p class="type-p">중간</p>
+              <p>10도 이상 ~ 25도 미만</p>
+            </label>
+            <label for="degree-type-3" style="">
+              <input
+                type="radio"
+                name="degree-type"
+                id="degree-type-3"
+                value="3"
+              />
+              <p class="type-p">높음</p>
+              <p>25도 이상</p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- 다음단계로 이동하는 버튼 -->
+  <button
+    class="next-button"
+    type="button"
+    onClick="location.href='/combinationFin'"
+  >
+    완료 >
+  </button>
+</div>
+
+<script>
+  var isSelected = false;
+  function selectItem(img) {
+    if (img.getAttribute("src") == "./images/placeholder.png") {
+      console.log("dma");
+      alert("선택된 항목이 없습니다.");
+      return;
+    }
+    if (isSelected == true) {
+      img.style.boxShadow = "";
+    } else {
+      img.style.borderRadius = "8px";
+      img.style.boxShadow = "0px 0px 0px 3px #000";
+    }
+    isSelected = !isSelected;
+  }
+</script>
+
+{% endblock %}

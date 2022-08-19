@@ -85,7 +85,7 @@ section > p {
   height: 50px;
   border: 1px solid #adadad;
   border-radius: 40px;
-  font-family: "맑은고딕체";
+  font-family: "Pretendard";
   font-size: 14px;
   text-align: center;
 }
@@ -235,7 +235,11 @@ footer > img {
   display: none;
   position: absolute;
   width: 190px;
+<<<<<<< HEAD
   height: 215px;
+=======
+  height: 250px;
+>>>>>>> origin/master
   background: #ffffff;
   box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -247,7 +251,11 @@ footer > img {
   display: block;
   position: absolute;
   width: 190px;
+<<<<<<< HEAD
   height: 215px;
+=======
+  height: 250px;
+>>>>>>> origin/master
   background: #ffffff;
   box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -354,4 +362,26 @@ footer > img {
 }
 .star{
   width: 45px;
+}
+
+/* submitBtn */
+.submitBtn {
+  color: white;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 550;
+  font-size: 22px;
+  line-height: 150%;
+  background-color:black;
+  width: 100%;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* 정렬 리스트 text */
+.btnText{
+  color: white;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
 }
