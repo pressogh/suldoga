@@ -1,0 +1,308 @@
+/* ===술 조합1 페이지=== */
+
+.ingredientSubTitle {
+  margin-top: 60px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 48px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+/* ===술 조합2 페이지=== */
+a {
+  text-decoration-line: none;
+  color: #adadad;
+}
+
+td {
+  width: 14%;
+  padding-right: 18px;
+  text-align: center;
+}
+/* 술 조합 페이지 타이틀 */
+/* 당신만의 다채로운 술 조합을 추천해주세요! */
+.title {
+  box-sizing: border-box;
+  margin: 200px auto 70px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+/* 현재 step 이미지 */
+#progress-image-container {
+  text-align: center;
+  margin: 0px 0px 120px 0px;
+}
+#progress-image {
+  width: 450px;
+  height: 67px;
+}
+
+/* ======================================================== */
+/* 검색창 부분 */
+#searchBar-wrapper {
+  margin: 0px auto;
+  text-align: center;
+}
+.searchBar {
+  box-sizing: border-box;
+  width: 780px;
+  height: 64px;
+  border: 1px solid #adadad;
+  border-radius: 40px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
+
+/* ====================================================== */
+
+/* 재료 고르는 섹션 */
+#ingredient-container {
+  display: flex;
+  flex-direction: column;
+  width: 1180px;
+  margin: 0px auto;
+}
+
+/* 재료 이미지 */
+td > img {
+  width: 180px;
+  height: 212px;
+}
+
+td > p {
+  margin-top: 24px;
+  margin-bottom: 80px;
+}
+
+/* 재료 고르기 */
+.ingredientTitle {
+  /* 
+    box-sizing: border-box;
+    position: absolute;
+    left:42%;
+    transform: translateX(-50%);
+    top: 670px;
+    width: 90px;
+    height: 48px; */
+  margin-top: 90px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+/* 음료 리스트 */
+.ingredient-list {
+  box-sizing: border-box;
+  /* position: absolute; */
+
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.ingredient-list table {
+  border-collapse: collapse;
+}
+
+.ingredient-list table th,
+td {
+  border: none;
+  line-height: 0;
+}
+
+.ingredient-list img {
+  display: block;
+  width: 100%;
+}
+
+/* 과일 고르기 */
+.fruitTitle {
+  /* box-sizing: border-box;
+    position: absolute;
+    left: 20%;
+    transform: translateX(-50%);
+    top: 1421px;
+    width: 90px;
+    height: 48px; */
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+
+  /* identical to box height */
+
+  color: #000000;
+}
+
+/* 다음단계로 넘어가는 버튼 */
+.next-button {
+  box-sizing: border-box;
+  width: 380px;
+  height: 75px;
+  margin: 100px auto 0px;
+  bottom: 50%;
+
+  /* black */
+  background: #040a04;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  /* identical to box height, or 30px */
+
+  /* White font */
+
+  color: #f0f0f0;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* ==================================================== */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1180px;
+  margin: 0px auto;
+}
+
+.content {
+  margin-bottom: 100px;
+}
+
+/* ===술 조합3 페이지=== */
+
+/* 술 조합 페이지 타이틀 */
+#result-container {
+  display: flex;
+  flex-direction: row;
+  width: 1180px;
+  height: 732px;
+  background: #ffffff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+}
+#result-image {
+  padding: 60px 0px 0px 0px;
+  flex: 1;
+}
+#result-alcohol {
+  text-align: center;
+}
+.result-ingredient-image > img {
+  width: 130px;
+}
+.result-ingredient-image > p {
+  text-align: center;
+}
+#result-ingredient {
+  width: 590px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+}
+#result-dsec {
+  width: 590px;
+  padding: 60px 30px 0px;
+  border-left: 1px solid #d9d9d9;
+  flex: 1;
+}
+
+.question-container {
+}
+
+.question-title-container {
+  margin-bottom: 30px;
+}
+
+.question-name {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33px;
+}
+.question-num {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33px;
+}
+.question-content {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.type-container {
+  text-align: center;
+}
+
+.type-p {
+  text-align: center;
+}
+
+label {
+  text-align: center;
+}
+
+#add-icon {
+  text-align: center;
+  margin: 60px auto 30px;
+}
+
+#combination-name {
+  margin-bottom: 80px;
+}
+
+input[type="text"] {
+  width: 509px;
+  height: 56px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+}
+
+input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #adadad;
+}

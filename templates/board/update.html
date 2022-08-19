@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'board/board.css' %}">
+
+<p class="uploadText">당신이 알고 있는 다양한 술 문화를 공유해주세요!</p>
+<a class="preText" href="{% url 'board:board' %}">< 이전</a>
+<div class="uploadArea"> 
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <div class="uploadBtn">
+                <input class="inputText" type="submit" value="수정하기">
+               
+            </div>
+        </form>
+</div>
+{% endblock %}

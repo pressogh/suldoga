@@ -9,11 +9,19 @@ class PostUploadForm(forms.ModelForm):
 
         widgets = {
             "username": forms.TextInput(attrs={
-                'placeholder': '제목',
-                'name': 'title'
+                'placeholder': 'title',
+                'name': 'title',
+                'class': 'titleInput'
             }),
             "password": forms.Textarea(attrs={
                 'placeholder': '내용',
                 'name': 'content',
+                'class': 'contentInput'
             }),
         }
+
+
+class PostUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content']

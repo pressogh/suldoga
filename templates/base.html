@@ -13,7 +13,7 @@
         footer{
             height: 165px;
             position : relative;
-            transform : translateY(-100%);
+            transform : translateY(0%);
             background: #040A04;
             text-align : center;
             display: flex;
@@ -78,19 +78,21 @@
 <header>
     <nav class="navStyle">
         <div class="navContent">
-            <a class="underLine" href="{% url 'cocktail:main' %}">Logo영역</a>
+            <a class="underLine" href="{% url 'cocktail:main' %}"><img src="{% static 'cocktail/images/baseImage/logo.png' %}" alt="Logo" style="width: 144px; height: 52px;"/></a>
             <a class="underLine" href="{% url 'cocktail:info' %}">칵테일 정보</a>
             <a class="underLine" href="{% url 'cocktail:cocktail' %}">Cocktail</a>
             <a class="underLine" href="{% url 'cocktail:kocktail' %}">K-ocktail</a>
-            <a class="underLine" href="#">술 조합 추천</a>
+            <a class="underLine" href="{% url 'cocktail:combination1' %}">술 조합 추천</a>
             <a class="underLine" href="{% url 'board:board' %}">술 문화 공유</a>
             {% if request.user.is_authenticated %}
-            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;">
-                <div style="width: 30px; height: 30px; border: 1px solid white; border-radius: 30px; margin-right: 10px;"></div>
-                <div style="margin-right: 20px;">
+
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: white;"> 
+                <a href="{% url 'cocktail:profile' user.id %}"> <img src="{% static 'cocktail/images/baseImage/user.png' %}" alt="mypage" style="margin-right: 20px;"/></a>
+                    <div style="margin-right: 50px;">
                 {{ request.user.first_name }}
                 </div>
                 <div class="liLogin">
+                   
                     <a class="underLogout" href="{% url 'accounts:logout' %}">LOGOUT</a>
                 </div>
             </div>

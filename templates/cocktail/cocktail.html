@@ -1,114 +1,74 @@
-{% extends "base.html"%} {% load static %} {% block content %}
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
 
-<link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}" />
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script defer src="{% static 'cocktail/list/js/common.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'cocktail/list/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'cocktail/list/js/common.js' %}"></script>
 
-<section>
-  <h3>Cocktail</h3>
-  <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
-  <div class="inner">
-    <div class="searching">
-      <i class="fas fa-search"></i>
-    </div>
-    <input
-      class="search-txt"
-      type="search"
-      id="keyword"
-      placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
-      onfocus="this.placeholder=''"
-      onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'"
-    />
-  </div>
-</section>
-<section class="chkbox">
-  <div class="contaniner">
-    <label
-      ><input type="checkbox" class="chk" name="" value="칵테일" />칵테일</label
-    >
-    <label
-      ><input type="checkbox" class="chk" name="" value="재료" />재료</label
-    >
-    <!-- 정렬버튼 -->
-    <div id="sort-container">
-      <div id="sort-toggle">
-        <img
-          id="sort-btn"
-          src="{% static 'cocktail/images/arrow_sort.png' %}"
-          alt="arrow-sort"
-        /><span id="sort-btn-text">기본</span>
-      </div>
-
-      <!-- 정렬폼 -->
-      <form action="" method="post">
-        {% csrf_token %}
-        <!-- 정렬 모달창 -->
-        <div id="modal-container">
-          <div id="sort-type">
-            <label for="sort-type-1">
-              <input
-                type="radio"
-                name="sort-type"
-                id="sort-type-1"
-                value="1"
-                checked
-              />
-              <span>기본</span>
-            </label>
-            <label for="sort-type-2">
-              <input type="radio" name="sort-type" id="sort-type-2" value="2" />
-              <span>별점순</span>
-            </label>
-            <label for="sort-type-3">
-              <input type="radio" name="sort-type" id="sort-type-3" value="3" />
-              <span>스크랩순</span>
-            </label>
-            <label for="sort-type-4">
-              <input type="radio" name="sort-type" id="sort-type-4" value="4" />
-              <span>도수순</span>
-            </label>
-            <label for="sort-type-5">
-              <input type="radio" name="sort-type" id="sort-type-5" value="5" />
-              <span>신상순</span>
-            </label>
-            <label for="sort-type-6">
-              <input type="radio" name="sort-type" id="sort-type-6" value="6" />
-              <span>여성인기</span>
-            </label>
-            <label for="sort-type-7">
-              <input type="radio" name="sort-type" id="sort-type-7" value="7" />
-              <span>남성인기</span>
-            </label>
-          </div>
+    <section>
+        <h3>Cocktail</h3>
+        <p>여러 종류의 술을 베이스로 하여 여러가지 재료를 혼합하여 만든 혼합주</p>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input class="search-txt" type="search" id="keyword" placeholder="궁금한 칵테일 이름 또는 재료를 검색해주세요."
+                   onfocus="this.placeholder=''" onblur="this.placeholder='궁금한 칵테일 이름 또는 재료를 검색해주세요.'">
         </div>
       </form>
     </div>
   </div>
 </section>
 
-<!-- 칵테일 카드 View List -->
-<section class="coclist">
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/br.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>블랙러시안</p>
+
+                <!-- 정렬폼 -->
+                <form action="{% url 'cocktail:cocktail' %}" method="get">
+                    {% csrf_token %}
+                    <!-- 정렬 모달창 -->
+                    <div id="modal-container">
+                        <div id="sort-type">
+                            <label for="sort-type-1">
+                                {% if sort == '1' %}
+                                <input type="radio" name="sort-type" id="sort-type-1" value="1" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-1" value="1" />
+                                {% endif %}
+                                <span>기본</span>
+                            </label>
+                            <label for="sort-type-2">
+                                {% if sort == '2' %}
+                                <input type="radio" name="sort-type" id="sort-type-2" value="2" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-2" value="2" />
+                                {% endif %}
+                                <span>스크랩순</span>
+                            </label>
+                            <label for="sort-type-3">
+                                {% if sort == '3' %}
+                                <input type="radio" name="sort-type" id="sort-type-3" value="3" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-3" value="3" />
+                                {% endif %}
+                                <span>낮은도수</span>
+                            </label>
+                            <label for="sort-type-4">
+                                {% if sort == '4' %}
+                                <input type="radio" name="sort-type" id="sort-type-4" value="4" checked />
+                                {% else %}
+                                <input type="radio" name="sort-type" id="sort-type-4" value="4" />
+                                {% endif %}
+                                <span>높은도수</span>
+                            </label>
+                        </div>
+                        <input class="submitBtn" type="submit" value="적용">
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </section>
     <section class="titleEng">
       <p>Black Russian</p>
@@ -151,241 +111,110 @@
     </section>
   </div>
 
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/sd.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>스크류 드라이버</p>
-    </section>
-    <section class="titleEng">
-      <p>Screw Driver</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/vc.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>보드카 크랜베리</p>
-    </section>
-    <section class="titleEng">
-      <p>Vodka Cranberry</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/km.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>깔루아 밀크</p>
-    </section>
-    <section class="titleEng">
-      <p>Kahlua Milk</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/gt.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>진 토닉</p>
-    </section>
-    <section class="titleEng">
-      <p>Gin and Tonic</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/mg.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>마가리타</p>
-    </section>
-    <section class="titleEng">
-      <p>Margarita</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/br.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>블랙러시안</p>
-    </section>
-    <section class="titleEng">
-      <p>Black Russian</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/jc.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>잭콕</p>
-    </section>
-    <section class="titleEng">
-      <p>Jack & Coke</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/ts.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>데킬라 선라이즈</p>
-    </section>
-    <section class="titleEng">
-      <p>Tequila Sunrise</p>
-    </section>
-  </div>
+    <!-- 칵테일 카드 View List -->
+    <section class="coclist">
+        <div class="cocktailDiv">
+            {% for item in cocktail %}
+            <div class="cardBox">
+                <button class="modal-custom-button" href="#myModal{{ item.id }}">
+                    <img class="modal-custom-button" href="#myModal{{ item.id }}" src="{{ item.image }}"/>
+                </button>
 
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/sd.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>스크류 드라이버</p>
-    </section>
-    <section class="titleEng">
-      <p>Screw Driver</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/vc.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>보드카 크랜베리</p>
-    </section>
-    <section class="titleEng">
-      <p>Vodka Cranberry</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/km.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>깔루아 밀크</p>
-    </section>
-    <section class="titleEng">
-      <p>Kahlua Milk</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/gt.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>진 토닉</p>
-    </section>
-    <section class="titleEng">
-      <p>Gin and Tonic</p>
-    </section>
-  </div>
-  <div class="cardBox">
-    <img
-      class="thumbnail"
-      src="{% static 'cocktail/images/alcohol/mg.png' %}"
-    />
-    <img
-      onclick="changeLike()"
-      class="likeBtn"
-      id="img"
-      src="{% static 'cocktail/images/unlike.png' %}"
-    />
-    <section class="titleKr">
-      <p>마가리타</p>
-    </section>
-    <section class="titleEng">
-      <p>Margarita</p>
+                <form action="{% url 'cocktail:likes' cocktails_id=item.id next_page='cocktail' %}" >
+                    {% csrf_token %}
+                    {% if user in item.like.all %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                    {% else %}
+                        <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                    {% endif %}
+                </form>
+
+                <section class="titleKr">
+                    <p>{{ item.name }}</p>
+                </section>
+                <section class="titleEng">
+                    <p>{{ item.eng_name }}</p>
+                </section>
+
+
+                <!-- The Modal -->
+                <div id="myModal{{ item.id }}" class="modal-custom">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close-modal">×</span>
+                            <br><br>
+                            <img class="thumbnail" src="{{ item.image }}" alt="">
+
+                            <section class="titleKr">
+                                <p>{{ item.name }}</p>
+                            </section>
+                            <section class="titleEng">
+                                <p>{{ item.eng_name }}</p>
+                            </section>
+                        </div>
+                        <br>
+                        <div class="modal-body">
+
+                            <p class="content">
+                                {{ item.description }}
+                            </p>
+
+                            <p class="modal-title">도수</p>
+                            <p class="content">{{ item.alcohol }}도</p>
+
+                            <p class="modal-title">맛</p>
+                            <p class="content">{{ item.taste }}</p>
+
+                            <p class="modal-title">베이스</p>
+                            <p class="content">{{ item.base }}</p>
+
+                            <p class="modal-title">어울리는 음식</p>
+                            <p class="content">{{ item.match_food }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </section>
   </div>
 </section>
+
+    <script>
+        // Get the button that opens the modal
+        var btn = document.querySelectorAll("button.modal-custom-button");
+
+        // All page modals
+        var modals = document.querySelectorAll('.modal-custom');
+
+        // Get the <span> element that closes the modal
+        var spans = document.getElementsByClassName("close-modal");
+
+        // 별관련
+        var stars = document.getElementsByClassName("stars");
+
+        // When the user clicks the button, open the modal
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function (e) {
+                e.preventDefault();
+                modal = document.querySelector(e.target.getAttribute("href"));
+                modal.style.display = "block";
+            }
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].onclick = function () {
+                for (var index in modals) {
+                    if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+                }
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+
+
+    </script>
 
 {% endblock %}

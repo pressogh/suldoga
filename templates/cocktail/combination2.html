@@ -1,0 +1,324 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'cocktail/combination/index.css' %}"
+/>
+<!-- <script src="{% static 'cocktail/main/index.js' %}"></script> -->
+
+<div class="wrapper">
+  <!-- 타이틀 -->
+  <p class="title">당신만의 다채로운 술 조합을 추천해주세요!</p>
+  <div id="progress-image-container">
+    <img
+      id="progress-image"
+      src="{% static 'cocktail/images/step2_progress.png' %}"
+    />
+  </div>
+
+  <!-- 검색창 -->
+  <section>
+    <div id="searchBar-wrapper">
+      <input
+        class="searchBar"
+        type="search-text"
+        placeholder="찾고자 하는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;"
+        onfocus="this.placeholder=''"
+        onblur="this.placeholder='찾고자 하는 재료를 검색해주세요.&nbsp;&nbsp;&nbsp;'"
+      />
+    </div>
+  </section>
+
+  <!-- 음료 고르기 -->
+  <section id="ingredient-container">
+    <div class="ingredient">
+      <p class="ingredientTitle">음료</p>
+      <div class="ingredient-list">
+        <table>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/tonic_water.jpeg' %}"
+              />
+
+              <p>토닉워터</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/sparkling_water.jpeg' %}"
+              />
+              <p>탄산수</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cidar.jpeg' %}"
+              />
+              <p>사이다</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cola.jpeg' %}"
+              />
+              <p>콜라</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/milk.jpeg' %}"
+              />
+              <p>우유</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/orange_juice.webp' %}"
+              />
+              <p>오렌지주스</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/jamong_juice.jpeg' %}"
+              />
+              <p>자몽주스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cranberry_juice.jpeg' %}"
+              />
+              <p>크렌베리주스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/pineapple_juice.jpeg' %}"
+              />
+              <p>파인애플주스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/tomato_juice.jpeg' %}"
+              />
+              <p>토마토주스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/apple_juice.jpeg' %}"
+              />
+              <p>사과주스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/coconut_mlik.jpeg' %}"
+              />
+              <p>코코넛밀크</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/sweet_sour_mix.png' %}"
+              />
+              <p>스윗엔샤워믹스</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/ginger_ale.jpeg' %}"
+              />
+              <p>진저에일</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/add_ingredient.png' %}"
+              />
+              <p>직접 추가</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 과일 고르기 -->
+    <div class="ingredient">
+      <p class="ingredientTitle">과일</p>
+      <div class="ingredient-list">
+        <table>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lemon_juice.jpeg' %}"
+              />
+              <p>레몬즙</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lemon.jpeg' %}"
+              />
+              <p>레몬</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lime_juice.jpeg' %}"
+              />
+              <p>라임즙</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/lime.jpeg' %}"
+              />
+              <p>라임</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/orange.jpeg' %}"
+              />
+              <p>오렌지</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cherry.jpeg' %}"
+              />
+              <p>체리</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/egg.jpeg' %}"
+              />
+              <p>계란</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/honey.jpeg' %}"
+              />
+              <p>꿀</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/fresh_cream.jpeg' %}"
+              />
+              <p>생크림</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/whipping_cream.jpeg' %}"
+              />
+              <p>휘핑크림</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/olive.jpeg' %}"
+              />
+              <p>올리브</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/grenadine_syrup.jpeg' %}"
+              />
+              <p>그렌나딘시럽</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/sugar.jpeg' %}"
+              />
+              <p>설탕</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/sugar_syrup.jpeg' %}"
+              />
+              <p>설탕시럽</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/salt.jpeg' %}"
+              />
+              <p>소금</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/cinnamon.jpeg' %}"
+              />
+              <p>계피</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/mint_leaf.jpeg' %}"
+              />
+              <p>민트잎</p>
+            </td>
+            <td>
+              <img
+                onClick="selectItem(this);"
+                src="{% static 'cocktail/images/ingredient/add_ingredient.png' %}"
+              />
+              <p>직접 추가</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 다음단계로 이동하는 버튼 -->
+  <button
+    class="next-button"
+    type="button"
+    onClick="location.href='/combination3'"
+  >
+    다음단계 >
+  </button>
+</div>
+
+<script>
+  var isSelected = false;
+  function selectItem(img) {
+    if (img.getAttribute("src") == "./images/placeholder.png") {
+      console.log("dma");
+      alert("선택된 항목이 없습니다.");
+      return;
+    }
+    if (isSelected == true) {
+      img.style.boxShadow = "";
+    } else {
+      img.style.borderRadius = "8px";
+      img.style.boxShadow = "0px 0px 0px 3px #000";
+    }
+    isSelected = !isSelected;
+  }
+</script>
+
+{% endblock %}

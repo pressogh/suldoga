@@ -1,38 +1,99 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block content %} 
 
-<div class="container">
-    <div class="row pt-4 my-3">
-        <div class="col-md-12">
-            <h3>게시판</h3>
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'board/share_style.css' %}">
+<div class="info-page screen">
+    <div class="content1">
+        <div class="text-1 pretendard-Bold-black-40px">당신이 알고 있는 다양한 술 문화를 공유해주세요!</div>
+        <div class="inner">
+            <div class="searching">
+                <i class="fas fa-search"></i>
+            </div>
+            <input class="search-txt" type="search" id="keyword" placeholder="제목 또는 내용을 검색해주세요."
+                   onfocus="this.placeholder=''" onblur="this.placeholder='제목 또는 내용을 검색해주세요.'">
+        </div>
+        <div class="flex-row-1">
+            <a href="/test.html">
+                <img class="best-1" src="{% static 'board/img/best.JPG' %}" />
+            </a>
+            <a href="/test.html">
+                <img class="best-2" src="{% static 'board/img/best.JPG' %}" />
+            </a>
+            <a href="/test.html">
+                <img class="best-3" src="{% static 'board/img/best.JPG' %}" />
+            </a>
+
+        </div>
+        <div class="text-container">
+            <a href="/test.html">
+                <div class="text-10 pretendard-medium-licorice-20px">이런 술문화는 어떤가요?</div>
+            </a>
+            <a href="/test.html">
+                <div class="text-8 pretendard-medium-licorice-20px">이런 술문화는 어떤가요?</div>
+            </a>
+            <a href="/test.html">
+                <div class="text-9 pretendard-medium-licorice-20px">이런 술문화는 어떤가요?</div>
+            </a>
+        </div>
+
+    </div>
+    <div class="text-container">
+        <div class=" best-content-1">
+            <div class="name-1 pretendard-medium-licorice-20px">NAME</div>
+            <div class="date-1 pretendard-medium-silver-chalice-18px">2022.08.18</div>
+            <div class="watch-1 pretendard-medium-silver-chalice-18px">조회수 20,000</div>
+        </div>
+        <div class=" best-content-1">
+            <div class="name-2 pretendard-medium-licorice-20px">NAME</div>
+            <div class="date-2 pretendard-medium-silver-chalice-18px">2022.08.18</div>
+            <div class="watch-2 pretendard-medium-silver-chalice-18px">조회수 50,000</div>
+        </div>
+        <div class=" best-content-1">
+            <div class="name-3 pretendard-medium-licorice-20px">NAME</div>
+            <div class="date-3 pretendard-medium-silver-chalice-18px">2022.08.18</div>
+            <div class="watch-3 pretendard-medium-silver-chalice-18px">조회수 30,000</div>
         </div>
     </div>
-    <div class="row my-3">
-        <table class="table table-hover table-bordered">
-            <thead>
-                <th>No</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>내용</th>
-                <th>발행일</th>
-                <th>비고</th>
-            </thead>
-            <tbody>
-                {% for post in board_list %}
-                <tr>
-                    <td>{{ forloop.revcounter }}</td>
-                    <td><a href="{% url 'board:detail' post.id %}">{{ post.title }}</a></td>
-                    <td>{{ post.user }}</td>
-                    <td>{{ post.content|truncatewords:5 }}</td>
-                    <td>{{ post.created_at|date:"Y-m-d" }}</td>
-                    <td></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <div style="padding: 2px 20px; float:right;">
-            <a href="{% url 'board:create' %}" class="btn btn-primary">글 등록</a>
+    <div class="container">
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="pretendard-medium-licorice-20px">번호</th>
+                        <th class="pretendard-medium-licorice-20px">제목</th>
+                        <th class="pretendard-medium-licorice-20px">작성자</th>
+                        <th class="pretendard-medium-licorice-20px">작성일</th>
+                        <th class="pretendard-medium-licorice-20px">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in board_list %}
+                    <tr>
+                        <td>{{ forloop.revcounter }}</td>
+                        <td><a href="{% url 'board:detail' post.id %}">{{ post.title }}</a></td>
+                        <td>{{ post.user }}</td>
+                        <td>{{ post.content|truncatewords:5 }}</td>
+                        <td>{{ post.created_at|date:"Y-m-d" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <article class="article">
+
+                <a href="/test.html"><ul class="contents pretendard-medium-licorice-20px"></ul></a>
+                <div class="overlap-group2">
+                    <a href="{% url 'board:create' %}">
+                        <div class="text-20">글 작성하기</div>
+                    </a>
+                </div>
+                <div class="buttons"></div>
+            </article>
+            <!-- Scripts -->
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         </div>
     </div>
 </div>

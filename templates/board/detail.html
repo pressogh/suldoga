@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'board/board.css' %}">
+<p class="uploadText">당신이 알고 있는 다양한 술 문화를 공유해주세요!</p>
+<a class="preText" href="{% url 'board:board' %}">< 이전</a>
 
-<div class="container">
-    <div class="row pt-4 my-3">
-        <div class="col-md-12">
-            <h3>글 세부 내용</h3>
-        </div>
-    </div>
-    <div class="row my-3">
-        <table class="table table-bordered">
+<div  class="uploadArea">
+    <div>
+        <table>
             <tr>
-                <td>[글 제목] : {{ board_list.title }}</td>
+                <td>(제목) : {{ board_list.title }} (유저) : {{board_list.user }}<small style="color:silver; text-align:right;"> (날짜) : {{ board_list.created_at|date:"Y-m-d H:i:s" }}</small></td>
             </tr>
+            <hr style="color: black;">
             <tr>
+              
                 <td>
-                    <p>[글 내용]</p>
-                    {{ board_list.content|linebreaks }}
-                    <p><small style="color:silver;text-align:right;">[{{ board_list.created_at|date:"Y-m-d H:i:s" }}]</small></p>
+                    <hr style="color: black;">
+                    (글내용) : {{ board_list.content|linebreaks }}
+                   
                 </td>
             </tr>
         </table>
+        <a href="{% url 'board:update' board_list.id %}">수정</a>
+        <a href="{% url 'board:delete' board_list.id %}">삭제</a>
     </div>
     <div style="padding: 2px 20px; float:right;">
-        <a href="{% url 'board:board' %}" class="btn btn-primary">글 목록</a>
     </div>
 </div>
 
