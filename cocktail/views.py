@@ -14,7 +14,7 @@ def InfoView(request):
 
 def ListView(request):
     if request.method == "GET":
-        cocktail = Cocktail.objects.all()    # 테이블의 객체 불러와서 저장
+        cocktail = Cocktail.objects.filter(type="C")    # 테이블의 객체 불러와서 저장
         print(request.GET)
         if request.GET:
             sort = int(request.GET["sort-type"])
@@ -36,7 +36,7 @@ def ListView(request):
             cocktail_list = cocktail.order_by('alcohol')
 
         print(cocktail_list)
-        return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail_list})
+        return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail_list, "sort": str(sort)})
 
 
 def KListView(request):
