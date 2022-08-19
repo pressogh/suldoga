@@ -13,12 +13,53 @@ def InfoView(request):
 
 
 def ListView(request):
-    cocktail = Cocktail.objects.all() 
-    return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail})
+    if request.method == "GET":
+        cocktail = Cocktail.objects.filter(type="C")    # 테이블의 객체 불러와서 저장
+        print(request.GET)
+        if request.GET:
+            sort = int(request.GET["sort-type"])
+        else:
+            sort = 1
+
+        cocktail_list = cocktail
+        print(sort)
+        if sort == 1: #기본
+            cocktail_list = cocktail
+
+        elif sort == 2: #스크랩순 (하트)
+            cocktail_list = cocktail.order_by('-like_count')
+
+        elif sort == 3: #도수 낮은 순
+            cocktail_list = cocktail.order_by('-alcohol')
+
+        elif sort == 4: #도수 높은 순
+            cocktail_list = cocktail.order_by('alcohol')
+
+        print(cocktail_list)
+        return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail_list, "sort": str(sort)})
 
 
 def KListView(request):
     kocktail = Cocktail.objects.all()
+    #kocktail = Cocktail.objects.filter(type="K")
+    sort = request.GET.get('sort','')    
+
+    if sort == 1: #기본
+        kocktail_list= Cocktail.objects.order_by('')
+        return render(request, 'cocktail/kocktail.html', {"cocktail": kocktail_list})
+
+    elif sort == 2: #스크랩순 (하트)
+        kocktail_list = Cocktail.objects.annotate(like_count=Cocktail('like')).order_by('-like_count')
+        return render(request, 'cocktail/kocktail.html', {"cocktail": kocktail_list})
+
+    elif sort == 3: #도수 낮은 순
+        kocktail_list = Cocktail.objects.order_by('alcohol')
+        return render(request, 'cocktail/kocktail.html', {"cocktail": kocktail_list})
+
+    elif sort == 4: #도수 높은 순
+        kocktail_list = Cocktail.objects.order_by('-alcohol')
+        return render(request, 'cocktail/kocktail.html', {"cocktail": kocktail_list})
+ 
     return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
 
 
