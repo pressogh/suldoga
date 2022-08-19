@@ -62,14 +62,17 @@ def KListView(request):
  
     return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
 
+def Combination1View(request):
+    return render(request, 'cocktail/combination1.html')
 
 def Combination2View(request):
     return render(request, 'cocktail/combination2.html') 
 
+def Combination3View(request):
+    return render(request, 'cocktail/combination3.html')
 
 def CombinationFinView(request):
     return render(request, 'cocktail/combinationFin.html') 
-
 
 def TestView(request):
     return render(request, 'cocktail/test.html')
