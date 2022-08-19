@@ -27,7 +27,7 @@
     color: #F0F0F0;
 }
  /* 칵테일 div area */
-.cocktailArea {
+ .cocktailArea {
     width: min(100% - 2rem, 1800px);
     margin-inline: auto;
     height: 100%;
