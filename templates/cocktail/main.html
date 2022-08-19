@@ -44,9 +44,11 @@
                         {% csrf_token %}
                         {% if user in cocktail.16.like.all %}
                             <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                          
                         {% else %}
                             <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
                         {% endif %}
+    
                     </form>
                         <section class="titleKr">
                             <p>블랙러시안</p>
@@ -61,7 +63,7 @@
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <span class="close-modal"></span>
+                                    <span class="close-modal">×</span>
                                     <br><br>
                                     <img class="thumbnail" src="{% static 'cocktail/images/alcohol/br.png' %}" alt="">
 
@@ -135,7 +137,7 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <span class="close-modal"></span>
+                                <span class="close-modal">×</span>
                                 <br><br>
                                 <img class="thumbnail" src="{% static 'cocktail/images/alcohol/jc.png' %}" alt="">
 
@@ -210,7 +212,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="close-modal"></span>
+                        <span class="close-modal">×</span>
                         <br><br>
                         <img class="thumbnail" src="{% static 'cocktail/images/alcohol/ts.png' %}" alt="">
 
@@ -282,7 +284,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal"></span>
+                            <span class="close-modal">×</span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/sd.png' %}" alt="">
 
@@ -334,8 +336,8 @@
                 <button class="modal-custom-button" href="#myModal5">
                     <img class="modal-custom-button" href="#myModal5" src="{% static 'cocktail/images/alcohol/vc.png' %}"/>
                 </button>
-
-                <form action="{% url 'cocktail:likes' cocktail.20.id "main" %}" >
+             
+                <form action="{% url 'cocktail:likes' cocktail.20.id 'main' %}" >
                     {% csrf_token %}
                     {% if user in cocktail.20.like.all %}
                         <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
@@ -356,7 +358,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="close-modal"></span>
+                        <span class="close-modal">×</span>
                         <br><br>
                         <img class="thumbnail" src="{% static 'cocktail/images/alcohol/vc.png' %}" alt="">
 
@@ -429,7 +431,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal"></span>
+                            <span class="close-modal">×</span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/km.png' %}" alt="">
 
@@ -502,7 +504,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close-modal"></span>
+                            <span class="close-modal">×</span>
                             <br><br>
                             <img class="thumbnail" src="{% static 'cocktail/images/alcohol/gt.png' %}" alt="">
 

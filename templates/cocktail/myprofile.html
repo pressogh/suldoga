@@ -1,6 +1,12 @@
+{% extends "base.html" %}
 {% load static %}
 
-<p>내가 좋아요 누른 글</p>
+{% block content %}
+
+<div style="margin-top: 7%; text-align: center;">
+<p style="font-size: 30px; font-weight: 500;">좋아요 누른 칵테일</p>
 {% for cocktail in cocktails  %}
-<p>{{cocktail.name}}</p>
+<p style="font-size: 22px; font-weight: 700;">{{cocktail.name}}</p>
 {% endfor %} 
+</div>
+{% endblock %}

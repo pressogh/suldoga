@@ -92,7 +92,7 @@
                 {{ request.user.first_name }}
                 </div>
                 <div class="liLogin">
-                    <a href="{% url 'cocktail:profile' user.id %}">{{user.username}}</a>
+                    <a href="{% url 'cocktail:profile' user.id %}">좋아요</a>
                     <a class="underLogout" href="{% url 'accounts:logout' %}">LOGOUT</a>
                 </div>
             </div>
