@@ -82,7 +82,7 @@
             <a class="underLine" href="{% url 'cocktail:info' %}">칵테일 정보</a>
             <a class="underLine" href="{% url 'cocktail:cocktail' %}">Cocktail</a>
             <a class="underLine" href="{% url 'cocktail:kocktail' %}">K-ocktail</a>
-            <a class="underLine" href="#">술 조합 추천</a>
+            <a class="underLine" href="{% url 'cocktail:combination1' %}">술 조합 추천</a>
             <a class="underLine" href="{% url 'board:board' %}">술 문화 공유</a>
             {% if request.user.is_authenticated %}
 
