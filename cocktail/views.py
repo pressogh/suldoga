@@ -11,6 +11,9 @@ def MainView(request):
 def InfoView(request):
     return render(request, 'cocktail/info.html')
 
+def base_wisky(request):
+    return render(request, 'cocktail/wisky.html')
+
 
 def ListView(request):
     if request.method == "GET":

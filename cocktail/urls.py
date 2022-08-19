@@ -15,4 +15,7 @@ urlpatterns = [
     path('test', views.TestView, name='test'),
     path('like/<int:cocktails_id>?next=<str:next_page>', views.LikeView, name="likes"),
     path('myprofile/<int:user_id>', views.myprofile, name='profile'),
+    path('wisky',views.base_wisky, name="wisky"),
+    path('wisky',views.base_wisky, name="wisky"),
+
 ]
