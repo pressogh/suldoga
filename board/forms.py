@@ -17,3 +17,8 @@ class PostUploadForm(forms.ModelForm):
                 'name': 'content',
             }),
         }
+
+class PostUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content']

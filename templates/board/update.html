@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block content %} 
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'board/board.css' %}">
 
 <p class="uploadText">당신이 알고 있는 다양한 술 문화를 공유해주세요!</p>
@@ -11,14 +11,9 @@
             {{ form.as_p }}
             
             <div class="uploadBtn">
-                <input class="inputText" type="submit" value="업로드하기">
+                <input class="inputText" type="submit" value="수정하기">
                
             </div>
         </form>
-</div>
-<div class="uploadFile">
-    <p>첨부파일</p>
-    <p>첨부파일(이미지, 동영상)은<br>최대 5개까지 등록 가능합니다.</p>
-    <input class="inputText" type="submit" value="test"/>
 </div>
 {% endblock %}
