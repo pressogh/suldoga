@@ -12,6 +12,10 @@ class Cocktail(models.Model):
     base = models.CharField(max_length=20)
     match_food = models.CharField(max_length=20)
     type = models.CharField(max_length=1, choices=(('C', 'Cocktail'), ('K', 'K-ocktail')))
+    like = models.ManyToManyField(User, related_name='like', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
+
+
 
     like = models.ManyToManyField(User, related_name='like', blank=True)
     like_count = models.PositiveIntegerField(default=0)

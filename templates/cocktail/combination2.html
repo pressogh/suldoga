@@ -308,10 +308,10 @@
       return;
     }
     if (isSelected == true) {
-      img.style.border = "";
+      img.style.boxShadow = "";
     } else {
-      img.style.border = "3px solid #000000";
       img.style.borderRadius = "8px";
+      img.style.boxShadow = "0px 0px 0px 3px #000";
     }
     isSelected = !isSelected;
   }
