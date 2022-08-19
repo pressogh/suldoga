@@ -13,12 +13,12 @@ def InfoView(request):
 
 
 def ListView(request):
-    cocktail = Cocktail.objects.all()    # 테이블의 객체 불러와서 저장
+    cocktail = Cocktail.objects.filter(type="C")   # 테이블의 객체 불러와서 저장
     return render(request, 'cocktail/cocktail.html', {"cocktail": cocktail})
 
 
 def KListView(request):
-    kocktail = Cocktail.objects.all()
+    kocktail = Cocktail.objects.filter(type="K")  
     return render(request, 'cocktail/kocktail.html', {"kocktail": kocktail})
 
 
