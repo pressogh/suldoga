@@ -1,3 +1,18 @@
+/* ===술 조합1 페이지=== */
+
+.ingredientSubTitle {
+  margin-top: 60px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 48px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
 /* ===술 조합2 페이지=== */
 a {
   text-decoration-line: none;
@@ -5,7 +20,7 @@ a {
 }
 
 td {
-  width: 16%;
+  width: 14%;
   padding-right: 18px;
   text-align: center;
 }
@@ -70,7 +85,7 @@ td {
 
 /* 재료 이미지 */
 td > img {
-  width: 140px;
+  width: 180px;
   height: 212px;
 }
 
