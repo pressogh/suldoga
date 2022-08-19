@@ -85,6 +85,7 @@
 
             </div>
         </div>
+<<<<<<< HEAD
     </section>
 
     <!-- 칵테일 카드 View List -->
@@ -190,5 +191,115 @@
 
 
     </script>
+=======
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 칵테일 카드 View List -->
+<section class="coclist">
+    <div class="cocktailDiv">
+        {% for item in kocktail %}
+        <div class="cardBox">
+            <button class="modal-custom-button" href="#myModal{{ item.id }}">
+                <img class="modal-custom-button" href="#myModal{{ item.id }}" src="{{ item.image }}"/>
+            </button>
+
+            <form action="{% url 'cocktail:likes' cocktails_id=item.id next_page='kocktail' %}" >
+                {% csrf_token %}
+                {% if user in item.like.all %}
+                    <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/like.png' %}" >
+                {% else %}
+                    <input type="image" class="likeBtn" id="img" src="{% static 'cocktail/images/unlike.png' %}" >
+                {% endif %}
+            </form>
+
+            <section class="titleKr">
+                <p>{{ item.name }}</p>
+            </section>
+            <section class="titleEng">
+                <p>{{ item.eng_name }}</p>
+            </section>
+
+
+            <!-- The Modal -->
+            <div id="myModal{{ item.id }}" class="modal-custom">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close-modal">×</span>
+                        <br><br>
+                        <img class="thumbnail" src="{{ item.image }}" alt="">
+
+                        <section class="titleKr">
+                            <p>{{ item.name }}</p>
+                        </section>
+                        <section class="titleEng">
+                            <p>{{ item.eng_name }}</p>
+                        </section>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+
+                        <p class="content">
+                            {{ item.description }}
+                        </p>
+
+                        <p class="modal-title">도수</p>
+                        <p class="content">{{ item.alcohol }}도</p>
+
+                        <p class="modal-title">맛</p>
+                        <p class="content">{{ item.taste }}</p>
+
+                        <p class="modal-title">베이스</p>
+                        <p class="content">{{ item.base }}</p>
+
+                        <p class="modal-title">어울리는 음식</p>
+                        <p class="content">{{ item.match_food }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+  // Get the button that opens the modal
+  var btn = document.querySelectorAll("button.modal-custom-button");
+
+  // All page modals
+  var modals = document.querySelectorAll('.modal-custom');
+
+  // Get the <span> element that closes the modal
+  var spans = document.getElementsByClassName("close-modal");
+
+  // 별관련
+  var stars = document.getElementsByClassName("stars");
+
+  // When the user clicks the button, open the modal
+  for (var i = 0; i < btn.length; i++) {
+      btn[i].onclick = function (e) {
+          e.preventDefault();
+          modal = document.querySelector(e.target.getAttribute("href"));
+          modal.style.display = "block";
+      }
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  for (var i = 0; i < spans.length; i++) {
+      spans[i].onclick = function () {
+          for (var index in modals) {
+              if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+          }
+      }
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+
+
+</script>
+>>>>>>> origin/jiyeon
 
 {% endblock %}

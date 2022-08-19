@@ -18,6 +18,7 @@ class PostUploadForm(forms.ModelForm):
             }),
         }
 
+
 class PostUpdateForm(forms.ModelForm):
     class Meta:
         model = Post
